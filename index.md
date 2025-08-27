@@ -1,10 +1,8 @@
 ---
 title: Introducción
 layout: home
----
 
----
-title: Subtitulo
+title: Sub
 layout: home
 ---
 
