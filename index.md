@@ -1,5 +1,5 @@
 ---
-title: UART
+title: Práctica 1
 layout: home
 ---
 
