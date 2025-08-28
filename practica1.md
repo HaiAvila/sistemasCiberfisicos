@@ -8,5 +8,5 @@ has_children: true
 # Practica 1
 
 Contenido:
-- [UART]({{ "/uart" | relative_url }})
+- [UART]({{ "/uartp1" | relative_url }})
 - [I2C]({{ "/i2c" | relative_url }})
