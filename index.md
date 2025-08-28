@@ -4,8 +4,6 @@ nav_order: 1
 layout: home
 ---
 
-# Práctica 1
-Bienvenido a la documentación de la **Práctica 1**.  
+**Sistemas Ciberfísicos**
+A continuación se muestran contenidos en relacion a la materia de Sistemas Ciberfísicos elaborados por Sebastián Mendez, Haili Avila y Daniela Colin. 
 
-# Práctica 2
-Bienvenido a la documentación de la **Práctica 2**.  
