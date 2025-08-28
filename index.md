@@ -1,5 +1,5 @@
 ---
-title: Práctica 1
+title: Inicio
 nav_order: 1
 layout: home
 ---
