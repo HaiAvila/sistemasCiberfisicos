@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Práctica 2
-has_children: true
-nav_order: 3
+title: Identificar
+has_children: false
+nav_order: 2
 ---
 
-# Práctica 2
+# Identificar
 
-- [Maestro A]({{ "/maestroa" | relative_url }})
-- [Maestros BC]({{ "/maestrobc" | relative_url }})
+Identificar las características de cada una de las diferentes
+plataformas de sistemas embebidos: frecuencia, memoria, I/O y
+protocolos disponibles.
