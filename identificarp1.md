@@ -2,6 +2,7 @@
 title: Práctica 1
 nav_order: 2
 layout: default
+has_toc: false
 ---
 
 # Práctica 1
