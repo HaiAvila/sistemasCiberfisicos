@@ -9,8 +9,8 @@ has_toc: false
 A continuación se muestran contenidos en relacion a la materia de Sistemas Ciberfísicos elaborados por Sebastián Mendez, Haili Avila y Daniela Colin. 
 
 - [Identificar]({{ "/identificarp1" | relative_url }})
-- [Prótocolo UART]({{ "/uartp1" | relative_url }})
-- [Prótocolo I2C]({{ "/i2cp1" | relative_url }})
+- [Protocolo UART]({{ "/uartp1" | relative_url }})
+- [Protocolo I2C]({{ "/i2cp1" | relative_url }})
 - [Maestro, leds en Esclavo]({{ "/maeesc1p1" | relative_url }})
 - [Maestro con leds, Esclavo]({{ "/maeesc2p1" | relative_url }})
 - [Combinación]({{ "/combip1" | relative_url }})
