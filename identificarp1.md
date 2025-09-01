@@ -7,7 +7,6 @@ layout: default
 # Práctica 1
 A continuación se muestran contenidos en relacion a la materia de Sistemas Ciberfísicos elaborados por Sebastián Mendez, Haili Avila y Daniela Colin. 
 
-- [Identificar]({{ "/identificarp1" | relative_url }})
 - [UART]({{ "/uartp1" | relative_url }})
 - [I2C]({{ "/i2cp1" | relative_url }})
 - [Maestro, leds en Esclavo]({{ "/maeesc1p1" | relative_url }})
