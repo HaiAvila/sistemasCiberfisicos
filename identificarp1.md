@@ -1,16 +1,11 @@
 ---
-title: Práctica 1
+layout: home
+title: Identificar
 nav_order: 2
-layout: default
-has_toc: false
 ---
 
-# Práctica 1
-A continuación se muestran contenidos en relacion a la materia de Sistemas Ciberfísicos elaborados por Sebastián Mendez, Haili Avila y Daniela Colin. 
+# Identificar
 
-- [Prótocolo UART]({{ "/uartp1" | relative_url }})
-- [Prótocolo I2C]({{ "/i2cp1" | relative_url }})
-- [Maestro, leds en Esclavo]({{ "/maeesc1p1" | relative_url }})
-- [Maestro con leds, Esclavo]({{ "/maeesc2p1" | relative_url }})
-- [Combinación]({{ "/combip1" | relative_url }})
-
+Identificar las características de cada una de las diferentes
+plataformas de sistemas embebidos: frecuencia, memoria, I/O y
+protocolos disponibles.
