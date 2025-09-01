@@ -4,6 +4,8 @@ title: Identificar
 nav_order: 2
 ---
 
+# Identificar
+
 En este apartado se identifican las principales características de las plataformas de sistemas embebidos utilizadas en la práctica: **Arduino Nano, XIAO RP2040 y ESP32**.  
 Se consideran parámetros como **frecuencia de reloj, memoria, entradas/salidas (I/O) y protocolos de comunicación disponibles**.
 
