@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Práctica 1
+parent: Práctica 1
 nav_order: 2
 has_children: true
 ---
