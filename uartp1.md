@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Protocolo UART
+title: Prótocolo UART
 parent: Práctica 1
 nav_order: 1
 ---
