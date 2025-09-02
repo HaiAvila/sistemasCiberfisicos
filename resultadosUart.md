@@ -15,7 +15,7 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 
 ## Resumen comparativo
 
-| Par | Baud | n | Prom (ms) | Media aritmética | p90 | p99 | σ | Min | Max | Outliers |
+| Par | Baud | n | Prom (ms) | p50 | p90 | p99 | σ | Min | Max | Outliers |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Arduino ↦ RP2040 | 38400 | 1000 | **3.197** | 3.192 | 3.204 | 3.216 | 0.152 | 3.168 | 8.004 | 1 |
 | RP2040 ↦ Arduino | 38400 | 1000 | **2.981** | 2.971 | 2.997 | 3.044 | 0.208 | 2.919 | 8.345 | 2 |
@@ -29,9 +29,6 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 **Cómo leer la tabla**
 
 - **Par**: combinación de dispositivos probados (p. ej., Arduino y RP2040).
-- **Sentido**: dirección de la prueba.  
-  - **A→B**: A envía, B hace eco inmediato y **A mide** el round-trip.  
-  - **A↔B**: métrica combinada o si el resultado es simétrico (solo si aplica).
 - **Baud**: velocidad configurada en UART (baudios). En nuestras pruebas: **38400**.
 - **n**: número de mensajes válidos utilizados en las métricas (tras limpieza).
 - **Prom (ms)**: **media aritmética** de la latencia round-trip en milisegundos.
