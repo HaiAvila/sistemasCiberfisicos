@@ -9,13 +9,13 @@ has_toc: true
 # Latencia y resultados (UART)
 
 En esta sección se reportan las mediciones de **latencia round-trip** entre pares de dispositivos con **baud fijo = 38400**. Para cada par se ejecutaron **1000 mensajes** (ping→eco inmediato→medición en el emisor).  
-Métricas: **promedio**, **p50**, **p90**, **p99**, **σ**, **mín**, **máx**, y **outliers** (> media + 3σ).
+Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín**, **máx**, y **outliers** (> media + 3σ).
 
 > Nota de limpieza: se descartaron valores imposibles (p. ej., 0 ms).
 
 ## Resumen comparativo
 
-| Par | Baud | n | Prom (ms) | p50 | p90 | p99 | σ | Min | Max | Outliers |
+| Par | Baud | n | Prom (ms) | Media aritmética | p90 | p99 | σ | Min | Max | Outliers |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Arduino ↦ RP2040 | 38400 | 1000 | **3.197** | 3.192 | 3.204 | 3.216 | 0.152 | 3.168 | 8.004 | 1 |
 | RP2040 ↦ Arduino | 38400 | 1000 | **2.981** | 2.971 | 2.997 | 3.044 | 0.208 | 2.919 | 8.345 | 2 |
@@ -24,7 +24,25 @@ Métricas: **promedio**, **p50**, **p90**, **p99**, **σ**, **mín**, **máx**, 
 | ESP32 ↦ RP2040 | 38400 | — | — | — | — | — | — | — | — | — |
 | RP2040 ↦ ESP32 | 38400 | — | — | — | — | — | — | — | — | — |
 
-> Interpretación rápida: en tus pruebas, **RP2040 → Arduino** mostró el menor promedio (~2.98 ms). En ambos sentidos aparecen picos aislados (~8 ms), típicos de jitter del SO/driver/buffer o de un eco que se retrasó por interrupciones.
+> Interpretación: en tus pruebas, **RP2040 → Arduino** mostró el menor promedio (~2.98 ms). En ambos sentidos aparecen picos aislados (~8 ms), típicos de jitter del SO/driver/buffer o de un eco que se retrasó por interrupciones.
+
+**Cómo leer la tabla**
+
+- **Par**: combinación de dispositivos probados (p. ej., Arduino y RP2040).
+- **Sentido**: dirección de la prueba.  
+  - **A→B**: A envía, B hace eco inmediato y **A mide** el round-trip.  
+  - **A↔B**: métrica combinada o si el resultado es simétrico (solo si aplica).
+- **Baud**: velocidad configurada en UART (baudios). En nuestras pruebas: **38400**.
+- **n**: número de mensajes válidos utilizados en las métricas (tras limpieza).
+- **Prom (ms)**: **media aritmética** de la latencia round-trip en milisegundos.
+- **p50 (ms)**: **percentil 50** = **mediana** (el 50% de las muestras ≤ este valor).  
+- **p90 (ms)**: **percentil 90** (el 90% de las muestras ≤ este valor).  
+- **p99 (ms)**: **percentil 99** (el 99% de las muestras ≤ este valor; proxy de “casi peor caso”).  
+  > Útil para ver colas/lags: cuanto más bajo p99, más predecible el enlace.
+- **σ (ms)**: **desviación estándar**; dispersión alrededor de la media (menor = más estable).
+- **Min / Max (ms)**: latencias mínima y máxima observadas.
+- **Outliers**: conteo de muestras atípicas (definidas aquí como > **media + 3σ**). 
+
 
 ## Detalle por par
 
