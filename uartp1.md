@@ -17,8 +17,6 @@ El objetivo fue:
 Los apartados que siguen detallan la descripción breve del protocolo, la metodología utilizada y los resultados experimentales.
 
 - [Descripción UART]({{ "/descripcionUart" | relative_url }})
-- [Baud rate máximo]({{ "/baudUart" | relative_url }})
-- [Latencia]({{ "/latenciaUart" | relative_url }})
 - [Resultados]({{ "/resultadosUart" | relative_url }})
 - [Códigos]({{ "/codigosUart" | relative_url }})
 - [Videos]({{ "/videosUart" | relative_url }})
