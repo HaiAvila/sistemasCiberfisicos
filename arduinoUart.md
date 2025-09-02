@@ -30,7 +30,8 @@ has_toc: true
 - **Pines (SoftwareSerial):** RX=D10, TX=D11  
 - **Salida:** CSV por Serial (`index,rtt_us`) con 1000 iteraciones
 
-```cpp
+{% raw %}
+~~~cpp
 // nano_uart_master_rtt.ino  — Arduino Nano (ATmega328P)
 // Mide RTT (round-trip) enviando 1000 mensajes "%04d\n" y leyendo eco+1.
 // Imprime CSV por Serial: "index,rtt_us"
@@ -115,3 +116,5 @@ void loop() {
 
   while (1) { delay(1000); }  // detener
 }
+~~~
+{% endraw %}
