@@ -19,10 +19,10 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Arduino ↦ RP2040 | 38400 | 1000 | **3.197** | 3.192 | 3.204 | 3.216 | 0.152 | 3.168 | 8.004 | 1 |
 | RP2040 ↦ Arduino | 38400 | 1000 | **2.981** | 2.971 | 2.997 | 3.044 | 0.208 | 2.919 | 8.345 | 2 |
-| Arduino ↦ ESP32 | 38400 | — | — | — | — | — | — | — | — | — |
-| ESP32 ↦ Arduino | 38400 | — | — | — | — | — | — | — | — | — |
-| ESP32 ↦ RP2040 | 38400 | — | — | — | — | — | — | — | — | — |
-| RP2040 ↦ ESP32 | 38400 | — | — | — | — | — | — | — | — | — |
+| Arduino ↦ ESP32 | 38400 | 1000 | — | — | — | — | — | — | — | — |
+| ESP32 ↦ Arduino | 38400 | 1000 | — | — | — | — | — | — | — | — |
+| ESP32 ↦ RP2040 | 38400 | 1000 | — | — | — | — | — | — | — | — |
+| RP2040 ↦ ESP32 | 38400 | 1000 | — | — | — | — | — | — | — | — |
 
 > Interpretación: en tus pruebas, **RP2040 → Arduino** mostró el menor promedio (~2.98 ms). En ambos sentidos aparecen picos aislados (~8 ms), típicos de jitter del SO/driver/buffer o de un eco que se retrasó por interrupciones.
 
