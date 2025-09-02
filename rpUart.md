@@ -15,7 +15,7 @@ has_toc: true
 
 **Pines (UART0 en XIAO RP2040):** `TX = P0 (D6)`, `RX = P1 (D7)`.  
 
-**Niveles lógicos:** RP2040 es **3.3 V**; si el otro dispositivo es **5 V** (p. ej., Arduino Nano), usa **conversor de nivel** o **divisores** hacia el RP2040.  
+**Niveles lógicos:** RP2040 es **3.3 V**; el otro dispositivo es **3.3 V** (Arduino Nano).  
 
 **Cableado:** `TX ↔ RX` cruzado y **GND común**.  
 
