@@ -121,7 +121,14 @@ void loop() {
 
 ### Esclavo — `nano_uart_slave_echo.ino`
 
-```liquid
+- **Rol:** Esclavo (responde de inmediato con **echo+1**).
+- **Placa:** Arduino Nano 3.3 V (8 MHz) o Nano con nivel lógico adaptado a 3.3 V.
+- **Baud/Trama:** `38400`, `8N1`, espera `"%04d\n"`.
+- **Pines:** `SoftwareSerial` → `RX = D10` (desde TX del maestro), `TX = D11` (hacia RX del maestro).
+- **Qué hace:** acumula caracteres hasta `\n`, interpreta el entero, **suma 1** y devuelve la respuesta con el mismo formato `"%04d\n"`.
+- **Uso:** compilar y cargar; **no imprime CSV** por Serial (solo actúa de eco).
+- **Validaciones rápidas:** si el maestro reporta latencias muy altas o `TIMEOUT`, revisar **TX↔RX**, **GND** y evitar usos simultáneos de `SoftwareSerial` con bauds más altos.
+
 {% raw %}
 ~~~cpp
 // nano_uart_slave_echo.ino  — Arduino Nano (ATmega328P)
