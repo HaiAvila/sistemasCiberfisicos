@@ -5,7 +5,8 @@ nav_order: 2
 layout: default
 has_toc: true
 ---
-## Rol y formato
+## RP2040
+### Rol y formato
 
 **Maestro:** inicia ping, mide **RTT** con `ticks_us()` y guarda **CSV** como `index,rtt_us` (**1000** iteraciones).  
 **Esclavo:** responde **eco+1** inmediatamente al recibir `"%04d\n"`.  

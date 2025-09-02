@@ -5,8 +5,8 @@ nav_order: 1
 layout: default
 has_toc: true
 ---
-
-## Rol y formato
+## Arduino Nano
+### Rol y formato
 
 - **Maestro:** inicia ping, mide **RTT** con `micros()` y emite CSV por **Serial** como `index,rtt_us` (1000 iteraciones).
 - **Esclavo:** responde **eco+1** inmediatamente al recibir `"%04d\n"`.
