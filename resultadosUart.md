@@ -47,17 +47,18 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 - **Métricas**: Prom 3.197 ms | p50 3.192 | p90 3.204 | p99 3.216 | σ 0.152 | **1** outlier (> 3.654 ms).  
 - **Gráfica**: 
 ![Latencia Arduino → RP2040]({{ "/Imagenes/Ard_RP.jpeg" | relative_url }}) 
-- **Notas**: cable TX↔RX cruzado + GND común; diferencia de niveles (5V↦3.3V) resuelta con conversor o divisor.
+- **Comentario**: latencia estable alrededor de 3.2 ms; un pico aislado de ~8 ms sugiere retardo esporádico (buffer/ISR). Conexión con conversión de nivel 5 V→3.3 V.
 
 ### RP2040 ↦ Arduino  {#uart-rp2040-arduino}
 - **Métricas**: Prom 2.981 ms | p50 2.971 | p90 2.997 | p99 3.044 | σ 0.208 | **2** outliers (> 3.605 ms).  
 - **Gráfica**: inserta aquí tu imagen  
 ![Latencia RP2040 → Arduino]({{ "/Imagenes/RP_Ard.jpeg" | relative_url }}) 
-- **Notas**: mismas condiciones; picos esporádicos (~8 ms) probablemente por cola de transmisión o ISR.
+- **Comentario**: mejor promedio (~2.98 ms). Aparecen 2 picos ~8.3 ms (probable cola de transmisión / interrupciones).
 
 ### Arduino ↦ ESP32  {#uart-arduino-esp32}
 - **Métricas**: *(pendiente de tu equipo)*  
 - **Gráfica**: `Imagenes/UART_Arduino_ESP32_latencia.png`
+- **Comentario**: *(añadir cuando se suba la gráfica y CSV)*
 
 ### ESP32 ↦ Arduino  {#uart-esp32-arduino}
 - **Métricas**: *(pendiente)*  
@@ -71,15 +72,5 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 - **Métricas**: *(pendiente)*  
 - **Gráfica**: `Imagenes/UART_RP2040_ESP32_latencia.png`
 
-## Metodología (resumen)
-- **Trama**: texto corto con contador + checksum; eco inmediato en el receptor.  
-- **Medición**: `Δt = T1 - T0` en el emisor (μs/ms).  
-- **Criterio de estabilidad**: 1000/1000 mensajes válidos (checksum OK).  
-- **Baud**: **38400** fijo para comparabilidad.  
-- **Limpieza**: se ignoran muestras imposibles (p. ej. 0 ms) y se reportan outliers.
-
-## Datos y material complementario
-- **CSV/TXT** (opcional): puedes enlazar con `[Descargar CSV](assets/datos/uart_arduino_rp2040_38400.csv)`.  
-- **Videos**: ver la página *Videos*.  
-- **Códigos**: ver la página *Códigos*.
+## Discusión breve
 
