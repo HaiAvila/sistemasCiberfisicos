@@ -3,17 +3,16 @@ layout: default
 title: Descripción de UART
 nav_order: 1
 parent: "Protocolo UART"
+has_toc: false
 ---
 
-# Descripción breve de UART
+# Descripción de UART
 
-El protocolo **UART** es un método de comunicación serial asíncrona que permite la transmisión de datos entre dos dispositivos sin necesidad de compartir una señal de reloj.  
+**UART** (Universal Asynchronous Receiver/Transmitter) es un método de comunicación serie **asíncrono** que no requiere reloj compartido: cada trama usa bits de **inicio** y **parada** para sincronizar.  
+Características clave:
+- **Punto a punto**: dos líneas de datos (**TX** y **RX**) más **GND**.
+- **Full-duplex**: transmisión y recepción simultáneas.
+- **Formato común**: 8N1 (8 bits, sin paridad, 1 bit de parada).
+- **Baud rate** típico: desde 9600 hasta varios Mbaudios (según hardware y calidad de enlace).
 
-Características principales:  
-- **Asíncrono:** utiliza bits de inicio y parada para sincronizar la comunicación.  
-- **Transmisión punto a punto:** comúnmente entre dos nodos (TX ↔ RX).  
-- **Full-duplex:** permite enviar y recibir datos al mismo tiempo.  
-- **Conexión física mínima:** requiere únicamente tres líneas (TX, RX y GND).  
-- **Velocidades típicas (baud rate):** desde 9600 hasta varios megabaudios, dependiendo del hardware.  
-
-En esta práctica, el protocolo UART se utilizó como primera prueba de desempeño en comunicación entre sistemas embebidos, sirviendo como referencia frente a I2C y SPI.
+En esta práctica se fijó **38400 baud** para comparar la latencia entre **Arduino Nano (ATmega328P)**, **XIAO RP2040** y **ESP32** en condiciones homogéneas.
