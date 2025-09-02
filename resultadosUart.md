@@ -46,7 +46,7 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 ### Arduino ↦ RP2040  {#uart-arduino-rp2040}
 - **Métricas**: Prom 3.197 ms | p50 3.192 | p90 3.204 | p99 3.216 | σ 0.152 | **1** outlier (> 3.654 ms).  
 - **Gráfica**: inserta aquí tu imagen  
-  `![Latencia](Imagenes/Ard_RP.jpeg)`  
+![Latencia Arduino → RP2040]({{ "/Imagenes/Ard_RP.jpeg" | relative_url }}) 
 - **Notas**: cable TX↔RX cruzado + GND común; diferencia de niveles (5V↦3.3V) resuelta con conversor o divisor.
 
 ### RP2040 ↦ Arduino  {#uart-rp2040-arduino}
