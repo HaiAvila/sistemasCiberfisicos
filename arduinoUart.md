@@ -118,3 +118,46 @@ void loop() {
 }
 ~~~
 {% endraw %}
+
+### Esclavo — `nano_uart_slave_echo.ino`
+
+```liquid
+{% raw %}
+~~~cpp
+// nano_uart_slave_echo.ino  — Arduino Nano (ATmega328P)
+// Esclavo UART: lee "%04d\n", responde inmediatamente con (valor+1) en el mismo formato.
+
+#include <SoftwareSerial.h>
+
+const long DUT_BAUD = 38400;                 // debe coincidir con el maestro
+const uint8_t RX_PIN = 10;                   // D10 <- TX del maestro
+const uint8_t TX_PIN = 11;                   // D11 -> RX del maestro
+SoftwareSerial DUT(RX_PIN, TX_PIN);          // RX, TX
+
+char buf[16];
+int idx = 0;
+
+void setup() {
+  DUT.begin(DUT_BAUD);
+  // Opcional: Serial.begin(115200); Serial.println(F("# Esclavo listo"));
+}
+
+void loop() {
+  while (DUT.available()) {
+    char c = DUT.read();
+    if (c == '\r') continue;
+    if (c != '\n') {
+      if (idx < (int)sizeof(buf) - 1) buf[idx++] = c;
+    } else {
+      buf[idx] = '\0'; idx = 0;
+
+      int v = atoi(buf) + 1;
+      char out[16];
+      int n = snprintf(out, sizeof(out), "%04u\n", (unsigned)v);
+      DUT.write((uint8_t*)out, n);
+    }
+  }
+}
+~~~
+{% endraw %}
+
