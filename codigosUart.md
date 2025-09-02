@@ -6,13 +6,13 @@ layout: default
 has_toc: true
 ---
 
-# Códigos (UART)
+# Códigos
 
 Convenciones de la práctica:
-- **Baud:** 38400 (8N1).
+- **Baud:** 38400.
 - **Formato de trama:** entero de 4 dígitos + `\n` (ej. `0001\n`).
 - **Roles:** *Maestro* inicia ping y mide RTT; *Esclavo* hace **eco+1** inmediato.
-- **Pines y niveles:** TX↔RX cruzado, **GND común**. Nano (5 V) vs ESP32/RP2040 (3.3 V) ⇒ usar conversor/divisores.
+- **Pines y niveles:** TX↔RX cruzado, **GND común**. Nano (3.3V) vs ESP32/RP2040 (3.3 V)
 
 ## Índice rápido
 - [RP2040 (XIAO) — Maestro, MicroPython](#rp2040-maestro-micropython)

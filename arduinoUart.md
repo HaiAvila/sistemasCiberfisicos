@@ -15,7 +15,7 @@ has_toc: true
 
 **Pines (SoftwareSerial):** `RX = D10` (desde TX del otro), `TX = D11` (hacia RX del otro).
 
-**Niveles lógicos:** Nano es **5 V**; si el otro dispositivo es **3.3 V** (RP2040/ESP32), usa **conversor de nivel** o **divisores**.
+**Niveles lógicos:** Nano es **3.3 V**; el otro dispositivo es **3.3 V** (RP2040/ESP32).
 
 **Cableado:** `TX ↔ RX` cruzado y **GND común**.
 
@@ -26,7 +26,7 @@ has_toc: true
 ### Maestro — `nano_uart_master_rtt.ino`
 
 - **Placa:** Arduino Nano (ATmega328P)  
-- **Baud/trama:** 38400, 8N1  
+- **Baud/trama:** 38400 
 - **Pines (SoftwareSerial):** RX=D10, TX=D11  
 - **Salida:** CSV por Serial (`index,rtt_us`) con 1000 iteraciones
 
@@ -122,7 +122,7 @@ void loop() {
 ### Esclavo — `nano_uart_slave_echo.ino`
 
 - **Rol:** Esclavo (responde de inmediato con **echo+1**).
-- **Placa:** Arduino Nano 3.3 V (8 MHz) o Nano con nivel lógico adaptado a 3.3 V.
+- **Placa:** Arduino Nano 3.3 V (8 MHz).
 - **Baud/Trama:** `38400`, `8N1`, espera `"%04d\n"`.
 - **Pines:** `SoftwareSerial` → `RX = D10` (desde TX del maestro), `TX = D11` (hacia RX del maestro).
 - **Qué hace:** acumula caracteres hasta `\n`, interpreta el entero, **suma 1** y devuelve la respuesta con el mismo formato `"%04d\n"`.
