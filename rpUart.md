@@ -5,14 +5,27 @@ nav_order: 2
 layout: default
 has_toc: true
 ---
-### Maestro — `rp2040_uart_master.py`
+## Rol y formato
 
-- **Rol y formato:** Maestro; inicia ping, mide **RTT** con `ticks_us()` y guarda **CSV** (`index,rtt_us`) de **1000** iteraciones. Mensaje `"%04d\n"` (4 dígitos + LF); el esclavo debe responder **echo+1**.
-- **Plataforma:** Seeed **XIAO RP2040** (MicroPython).
-- **Baud/Trama:** `38400`, `8N1`.
-- **Pines (UART0):** `TX = P0 (D6)`, `RX = P1 (D7)` *(ajusta si usas otra placa RP2040)*.
-- **Archivo de salida:** `latencia_uart_38400.csv` en el almacenamiento del dispositivo.
-- **Uso:** abrir en **Thonny**, guardar en el dispositivo y ejecutar; al terminar descarga el CSV.
+**Maestro:** inicia ping, mide **RTT** con `ticks_us()` y guarda **CSV** como `index,rtt_us` (**1000** iteraciones).  
+**Esclavo:** responde **eco+1** inmediatamente al recibir `"%04d\n"`.  
+
+**Baud / trama:** `38400`, `8N1`, `"%04d\n"`.  
+
+**Pines (UART0 en XIAO RP2040):** `TX = P0 (D6)`, `RX = P1 (D7)`.  
+
+**Niveles lógicos:** RP2040 es **3.3 V**; si el otro dispositivo es **5 V** (p. ej., Arduino Nano), usa **conversor de nivel** o **divisores** hacia el RP2040.  
+
+**Cableado:** `TX ↔ RX` cruzado y **GND común**.  
+
+**Uso (maestro):** en **Thonny**, guardar y ejecutar `rp2040_uart_master.py`; al terminar, descargar el CSV del dispositivo.  
+**Uso (esclavo):** guardar como `main.py` (o ejecutar manualmente) y dejar corriendo mientras el maestro mide.
+
+### Maestro — `rp2040_uart_master.py`
+**Plataforma:** Seeed XIAO RP2040 (MicroPython)  
+**Baud/trama:** `38400`, `8N1`  
+**Pines (UART0):** `TX = P0 (D6)`, `RX = P1 (D7)`  
+**Salida:** CSV en el dispositivo (`index,rtt_us`) con **1000** iteraciones
 - **Validaciones rápidas:** si ves `TIMEOUT`, revisa **TX↔RX**, **GND**, mismo **baud** en ambos; evita cargas de CPU en el esclavo.
 
 {% raw %}
@@ -100,13 +113,10 @@ run_test()
 {% endraw %}
 
 ### Esclavo — `rp2040_uart_slave.py`
-
-- **Rol y formato:** Esclavo; recibe `"%04d\n"`, responde inmediatamente con **(valor+1)** en el mismo formato.
-- **Plataforma:** Seeed **XIAO RP2040** (MicroPython).
-- **Baud/Trama:** `38400`, `8N1`.
-- **Pines (UART0):** `TX = P0 (D6)`, `RX = P1 (D7)`.
-- **Salida:** no genera CSV; solo **eco+1**.
-- **Uso:** guardar como `main.py` (o ejecutar manualmente) en el RP2040; dejar corriendo mientras el maestro mide.
+**Plataforma:** Seeed XIAO RP2040 (MicroPython)  
+**Baud/trama:** `38400`, `8N1`  
+**Pines (UART0):** `TX = P0 (D6)`, `RX = P1 (D7)`  
+**Salida:** no genera CSV; solo **eco+1**
 - **Validaciones rápidas:** mantener el **eco inmediato** (sin `delay` largos); revisar **TX↔RX**, **GND** y el mismo **baud**.
 
 ### Código — `rp2040_uart_slave.py`
