@@ -111,7 +111,6 @@ run_test()
 
 ### Código — `rp2040_uart_slave.py`
 
-```liquid
 {% raw %}
 ~~~python
 # rp2040_uart_slave.py  (Seeed XIAO RP2040 - MicroPython)
