@@ -2,27 +2,30 @@
 title: "Arquitectura y conexiones"
 parent: "UART"
 nav_order: 1
-layout: default
 ---
 
-# Arquitectura y conexiones (UART)
+# Arquitectura y descripción de UART
 
-## Topologías a medir
-- RP2040 ↔ ESP32
-- RP2040 ↔ Arduino Nano
-- ESP32 ↔ Arduino Nano
+**UART** (Universal Asynchronous Receiver/Transmitter) es un método de comunicación serie **asíncrono**, que no requiere reloj compartido: cada trama usa bits de **inicio** y **parada** para sincronizar.
 
-> **Reglas básicas:** TX↔RX cruzados y **GND común**.
+Características clave:
+- **Punto a punto:** dos líneas de datos (TX y RX) más GND.  
+- **Full-duplex:** transmisión y recepción simultáneas.  
+- **Formato común:** 8N1 (8 bits, sin paridad, 1 bit de parada).  
+- **Baud rate típico:** 9 600 a varios Mbaudios (según hardware).  
 
-## Pinout propuesto
-*(ajusta si tus placas difieren)*
+En esta práctica se fijó inicialmente **38400 baud** para comparar la latencia entre **Arduino Nano (ATmega328P)**, **XIAO RP2040** y **ESP32** en condiciones homogéneas.
 
-- **RP2040 (XIAO):** TX=GP0, RX=GP1  
-- **ESP32:** TX=GPIO1 (o 17), RX=GPIO3 (o 16)  
-- **Nano:** TX=D1, RX=D0 (**comparterna USB-serial**)
+---
 
-## Esquema y fotos
-- **Esquema KiCad:** *inserta PNG/SVG exportado*  
-  ![](/assets/img/uart/esquemas/uart_rp2040_esp32.png)
-- **Conexión real:**  
-  ![](/assets/img/uart/conexiones/uart_rp2040_esp32_real.jpg)
+## Pines y conexiones
+
+- **TX ↔ RX cruzados**.  
+- **GND común** entre dispositivos.  
+- Precaución: **Arduino Nano es 5V**, mientras que RP2040 y ESP32 son **3.3V** → usar divisor o level shifter si es necesario.  
+
+**Esquema en KiCad:**  
+![Esquema UART](/assets/img/uart/esquemas/uart_diagrama.png)
+
+**Foto de conexión real:**  
+![Foto conexión](/assets/img/uart/conexiones/uart_rp2040_esp32.jpg)

@@ -1,22 +1,25 @@
 ---
 title: "UART"
-nav_order: 10
 layout: default
+nav_order: 10
 has_children: true
 ---
 
 # UART — Objetivo y entregables
 
-**Objetivo:** medir **baudrate máximo** por plataforma y **latencia round-trip** entre pares de placas (RP2040, ESP32, Nano) enviando **1000 mensajes** por corrida.  
+**Objetivo:**  
+1. Identificar el **baud rate máximo estable** en cada plataforma.  
+2. Medir la **latencia round-trip** enviando 1000 mensajes por par de dispositivos.  
+3. Representar los resultados con **gráficas**, **tablas comparativas**, **diagramas eléctricos** y **códigos implementados**.
 
 **Entregables de esta sección:**
-- Diagrama de **arquitectura** y **esquema eléctrico (KiCad)**.
+- Diagrama de **arquitectura** y **esquema eléctrico** (KiCad).
 - **Códigos** (maestro/esclavo) por plataforma.
 - **6 gráficas** de latencia (todas las combinaciones de plataformas).
-- **Tabla resumen** con mean, median, p95, std y jitter.
+- **Tabla resumen** con métricas (mean, median, p95, std, jitter).
 
 **Subsecciones:**
-1. [Arquitectura y conexiones]({{ "/practica-1/uart/arquitectura/" | relative_url }})
-2. [Firmware]({{ "/practica-1/uart/firmware/" | relative_url }})
-3. [Pruebas]({{ "/practica-1/uart/pruebas/" | relative_url }})
-4. [Resultados]({{ "/practica-1/uart/resultados/" | relative_url }})
+1. [Arquitectura y conexiones]({{ "/uart/arquitectura/" | relative_url }})
+2. [Firmware]({{ "/uart/firmware/" | relative_url }})
+3. [Pruebas]({{ "/uart/pruebas/" | relative_url }})
+4. [Resultados]({{ "/uart/resultados/" | relative_url }})

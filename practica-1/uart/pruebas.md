@@ -2,19 +2,27 @@
 title: "Pruebas"
 parent: "UART"
 nav_order: 3
-layout: default
 ---
 
 # Procedimiento de pruebas (UART)
 
-## Parte A — Descubrir baudrate máximo por plataforma
-1. Conecta un **eco local** (misma placa) o par simple estable.
-2. Incrementa baud: 115200 → 230400 → 460800 → 921600 → 1M (si aplica).
-3. Criterio: **0 pérdidas** y caracteres íntegros durante 30–60 s.
+## Parte A — Baudrate máximo
+1. Conecta un par de placas.
+2. Incrementa baud: 115200 → 230400 → 460800 → 921600 → 1M.  
+3. Elige el mayor valor con 0% de pérdidas.
 
-## Parte B — Latencia entre plataformas (1000 mensajes)
-1. Selecciona par (RP2040–ESP32, RP2040–Nano, ESP32–Nano).  
-2. Configura baud (p. ej. 115200 y el **máximo estable** encontrado).  
-3. Corre **1000 mensajes** (payload fijo, p. ej. 16 bytes).  
-4. Guarda CSV en `assets/logs/uart/` con este **formato**:
+## Parte B — Latencia (1000 mensajes)
+1. Configura baud fijo (ej. 38400 y el máximo estable encontrado).  
+2. Corre 1000 mensajes con eco inmediato.  
+3. Guarda los resultados en CSV con columnas:
 
+timestamp_start_ms, timestamp_end_ms, rtt_ms, placa_A, placa_B, baud, ok
+
+
+## Archivo de logs
+Ejemplo de nombre:  
+`uart_rp2040-esp32_38400_001.csv`
+
+## Validación
+- `ok` ≥ 99.9%  
+- RTT sin valores imposibles (ej. 0 ms).
