@@ -2,6 +2,7 @@
 title: "Pruebas"
 parent: "UART"
 nav_order: 3
+layout: default
 ---
 
 # Procedimiento de pruebas (UART)

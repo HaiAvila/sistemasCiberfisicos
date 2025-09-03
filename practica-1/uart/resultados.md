@@ -2,6 +2,7 @@
 title: "Resultados"
 parent: "UART"
 nav_order: 4
+layout: default
 ---
 
 # Resultados de latencia (UART)

@@ -2,6 +2,7 @@
 title: "Firmware"
 parent: "UART"
 nav_order: 2
+layout: default
 ---
 
 # Firmware — convenciones y códigos

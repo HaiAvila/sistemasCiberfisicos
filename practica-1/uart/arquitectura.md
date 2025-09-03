@@ -2,6 +2,7 @@
 title: "Arquitectura y conexiones"
 parent: "UART"
 nav_order: 1
+layout: default
 ---
 
 # Arquitectura y descripción de UART
