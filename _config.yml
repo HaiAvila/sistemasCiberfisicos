@@ -2,8 +2,8 @@ title: Sistemas Ciberfísicos
 description: Notas y documentación
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
-
+url: "https://haiavila.github.io"
+baseurl: "/sistemasCiberfisicos"   # respeta mayúsculas/minúsculas
 permalink: pretty
 
 aux_links:
