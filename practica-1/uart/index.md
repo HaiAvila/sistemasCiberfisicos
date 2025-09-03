@@ -1,6 +1,5 @@
 ---
 title: "UART"
-parent: "Práctica 1"
 nav_order: 10
 layout: default
 has_children: true

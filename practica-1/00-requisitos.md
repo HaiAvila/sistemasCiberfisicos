@@ -1,6 +1,5 @@
 ---
 title: "00 — Requisitos"
-parent: "Práctica 1"
 nav_order: 2
 layout: default
 has_toc: true

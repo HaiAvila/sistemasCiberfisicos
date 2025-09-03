@@ -1,7 +1,6 @@
 ---
 title: "Arquitectura y conexiones"
 parent: "UART"
-grand_parent: "Práctica 1"
 nav_order: 1
 layout: default
 ---

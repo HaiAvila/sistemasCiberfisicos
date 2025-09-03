@@ -1,6 +1,5 @@
 ---
 title: "01 — Plataformas y protocolos"
-parent: "Práctica 1"
 nav_order: 3
 layout: default
 has_toc: true

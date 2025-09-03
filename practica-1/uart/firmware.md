@@ -1,7 +1,6 @@
 ---
 title: "Firmware"
 parent: "UART"
-grand_parent: "Práctica 1"
 nav_order: 2
 layout: default
 ---

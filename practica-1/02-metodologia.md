@@ -1,6 +1,5 @@
 ---
 title: "02 — Metodología de medición"
-parent: "Práctica 1"
 nav_order: 4
 layout: default
 has_toc: true

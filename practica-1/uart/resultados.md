@@ -1,7 +1,6 @@
 ---
 title: "Resultados"
 parent: "UART"
-grand_parent: "Práctica 1"
 nav_order: 4
 layout: default
 ---
