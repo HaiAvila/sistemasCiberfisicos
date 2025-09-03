@@ -21,7 +21,6 @@ has_toc: false
 - **Arduino Nano (ATmega328P):** `SDA = A4`, `SCL = A5` (**5 V**).  
 - **ESP32 (Wire por defecto):** `SDA = GPIO21`, `SCL = GPIO22` (**3.3 V**, puede reconfigurarse).  
 - **XIAO RP2040:** I2C0 típico en `SDA/SCL` de la placa (consultar pinmap de tu board, p. ej., D4/D5).  
-> Si combinas 5 V con 3.3 V, usa **level shifter bidireccional** o una topología que garantice que las **pull-ups** estén a **3.3 V** y que el dispositivo a 5 V reconozca niveles lógicos a 3.3 V.
 
 **Formato de prueba sugerido:**  
 - **Payload:** entero pequeño (ASCII `"0001"` o binario 2-bytes).  
