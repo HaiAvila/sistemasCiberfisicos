@@ -19,7 +19,7 @@ has_children: true
 - **Tabla resumen** con métricas (mean, median, p95, std, jitter).
 
 **Subsecciones:**
-1. [Arquitectura y conexiones]({{ "/uart/arquitectura/" | relative_url }})
-2. [Firmware]({{ "/uart/firmware/" | relative_url }})
-3. [Pruebas]({{ "/uart/pruebas/" | relative_url }})
-4. [Resultados]({{ "/uart/resultados/" | relative_url }})
+1. [Arquitectura y conexiones]({{ "/practica-1/uart/arquitectura.md" | relative_url }})
+2. [Firmware]({{ "/practica-1/uart/firmware/" | relative_url }})
+3. [Pruebas]({{ "/practica-1/uart/pruebas/" | relative_url }})
+4. [Resultados]({{ "/practica-1/uart/resultados/" | relative_url }})
