@@ -4,6 +4,7 @@ parent: "codigos"
 grand_parent: "I2C"
 layout: default
 nav_order: 1
+render_with_liquid: false
 ---
 
 # Arduino Nano — Maestro
@@ -12,9 +13,7 @@ nav_order: 1
 
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
-{% raw %}
 ```cpp
-
 // NANO_INIT_UART_RTT_FIXED.ino
 #include <SoftwareSerial.h>
 
@@ -46,8 +45,8 @@ bool readLine(Stream& s, char* out, size_t maxlen) {
 }
 
 void setup() {
-  Serial.begin(115200);         
-  DUT.begin(DUT_BAUD);          
+  Serial.begin(115200);
+  DUT.begin(DUT_BAUD);
   delay(200);
   Serial.println(F("# Test UART fijo 4 digitos: Nano iniciador -> ESP32 eco+1"));
   Serial.print(F("# BAUD ")); Serial.println(DUT_BAUD);
@@ -73,8 +72,7 @@ void loop() {
     unsigned long t1 = micros();
     unsigned long rtt = (unsigned long)(t1 - t0);
 
-    int resp = atoi(rxbuf);             // debería ser value+1 en ascii fijo
-    // (opcional) validar: if (resp != value+1) { ... }
+    int resp = atoi(rxbuf); // debería ser value+1 en ascii fijo
 
     Serial.print(idx);
     Serial.print(",");

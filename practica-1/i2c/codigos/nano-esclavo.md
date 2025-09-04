@@ -16,3 +16,7 @@ nav_order: 1
 ```cpp
 
 // NANO_INIT_UART_RTT_FIXED.ino
+print()
+
+
+{% endraw %}
