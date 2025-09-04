@@ -21,13 +21,13 @@ has_children: true
 ## Códigos por plataforma
 
 1. **Arduino Nano**
-   - [Maestro]({{ "/uart/firmware/nano-maestro/" | relative_url }})
-   - [Esclavo]({{ "/uart/firmware/nano-esclavo/" | relative_url }})
+   - [Maestro]({{ "/uart/codigos/nano-maestro/" | relative_url }})
+   - [Esclavo]({{ "/uart/codigos/nano-esclavo/" | relative_url }})
 
 2. **RP2040**
-   - [Maestro]({{ "/uart/firmware/rp2040-maestro/" | relative_url }})
-   - [Esclavo]({{ "/uart/firmware/rp2040-esclavo/" | relative_url }})
+   - [Maestro]({{ "/uart/codigos/rp2040-maestro/" | relative_url }})
+   - [Esclavo]({{ "/uart/codigos/rp2040-esclavo/" | relative_url }})
 
 3. **ESP32**
-   - [Maestro]({{ "/uart/firmware/esp32-maestro/" | relative_url }})
-   - [Esclavo]({{ "/uart/firmware/esp32-esclavo/" | relative_url }})
+   - [Maestro]({{ "/uart/codigos/esp32-maestro/" | relative_url }})
+   - [Esclavo]({{ "/uart/codigos/esp32-esclavo/" | relative_url }})
