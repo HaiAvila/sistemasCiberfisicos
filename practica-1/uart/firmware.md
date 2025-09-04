@@ -3,6 +3,7 @@ title: "Firmware"
 parent: "UART"
 nav_order: 2
 layout: default
+has_children: true
 ---
 
 # Firmware — convenciones y códigos
@@ -11,25 +12,22 @@ layout: default
 - **Baud:** 38400  
 - **Formato de trama:** entero de 4 dígitos + salto de línea (`"%04d\n"`)  
 - **Roles:**  
-  - *Maestro* → inicia ping y mide RTT  
+  - *Maestro* → inicia y mide RTT  
   - *Esclavo* → responde eco+1 inmediato  
 - **Conexiones:** TX↔RX cruzados, GND común
 
 ---
 
-## Arduino Nano
-### Maestro — `nano_uart_master_rtt.ino`
-*(código que imprime CSV `index,rtt_us` con 1000 iteraciones)*
+## Códigos por plataforma
 
-### Esclavo — `nano_uart_slave_echo.ino`
-*(código que responde eco+1 en el mismo formato)*
+1. **Arduino Nano**
+   - [Maestro]({{ "/uart/firmware/nano-maestro/" | relative_url }})
+   - [Esclavo]({{ "/uart/firmware/nano-esclavo/" | relative_url }})
 
----
+2. **RP2040**
+   - [Maestro]({{ "/uart/firmware/rp2040-maestro/" | relative_url }})
+   - [Esclavo]({{ "/uart/firmware/rp2040-esclavo/" | relative_url }})
 
-## RP2040
-*(Aquí pegas tus códigos de maestro/esclavo en RP2040, siguiendo la misma convención)*
-
----
-
-## ESP32
-*(Aquí pegas tus códigos de maestro/esclavo en ESP32)*
+3. **ESP32**
+   - [Maestro]({{ "/uart/firmware/esp32-maestro/" | relative_url }})
+   - [Esclavo]({{ "/uart/firmware/esp32-esclavo/" | relative_url }})
