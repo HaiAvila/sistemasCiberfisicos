@@ -1,6 +1,6 @@
 ---
 title: "Arduino Nano — Maestro"
-parent: "Firmware"
+parent: "codigos"
 grand_parent: "UART"
 layout: default
 nav_order: 1
