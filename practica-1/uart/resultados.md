@@ -25,16 +25,28 @@ Se midió la latencia round-trip enviando **1000 mensajes** a **38400 baud** en 
 ## Detalle por par
 
 ### Arduino ↦ RP2040
-![Latencia Arduino → RP2040](/assets/img/uart/resultados/Ard_RP.jpeg)
-
-- Promedio ~3.2 ms, un pico aislado ~8 ms.
+![Latencia Arduino → RP2040](/assets/img/Ard_RP.jpeg)
+- Promedio ~3.2 ms.
 
 ### RP2040 ↦ Arduino
-![Latencia RP2040 → Arduino](/assets/img/uart/resultados/RP_Ard.jpeg)
+![Latencia RP2040 → Arduino](/assets/img/RP_Ard.jpeg)
+- Promedio (~2.98 ms).
 
-- Mejor promedio (~2.98 ms), dos picos aislados ~8.3 ms.
+### ESP32 ↦ Arduino
+![Latencia ESP32 → Arduino](/assets/img/uart_latency_ESP32_to_Nano_38400_20250820_171819_latency.png)
+- Promedio ~2.8 ms.
 
-*(Agrega aquí las demás gráficas cuando las subas).*
+### Arduino ↦ ESP32
+![Latencia Arduino → ESP32](/assets/img/uart_latency_Nano_to_ESP32_38400_20250820_162831_latency.png)
+- Promedio (~2.71 ms).
+
+### ESP32 ↦ RP2040
+![Latencia ESP32 → RP2040](/assets/img/IMAGEN_DANY)
+- Promedio ~3.2 ms.
+
+### RP2040 ↦ ESP32
+![Latencia RP2040 → ESP32](/assets/img/IMAGEN_DANY)
+- Promedio (~2.98 ms).
 
 ---
 
