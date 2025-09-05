@@ -1,9 +1,10 @@
 ---
 title: "Videos — UART (Ejercicio 4)"
 layout: default
-nav_exclude: true     # oculta en el nav (just-the-docs)
-# search_exclude: true  # opcional: también la saca del buscador
+nav_exclude: true
+permalink: /practica-1/arquitecturas/4-punto-a-multipunto/videos-uart/
 ---
+
 
 
 # Videos — UART (Ejercicio 4)

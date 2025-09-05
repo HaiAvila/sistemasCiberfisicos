@@ -22,4 +22,4 @@ nav_order: 4
 | 3 | Switch1+Switch2 → LED1+LED2 | Ambos encendidos | ⚠️ | LED2 parpadea |
 
 **Videos de implementación**
-- [UART — 3 plataformas]({{ "/practica-1/arquitecturas/4-punto-a-multipunto/videos-uart.md" | relative_url }})
+- [UART — 3 plataformas]({{ "/practica-1/arquitecturas/4-punto-a-multipunto/videos-uart/" | relative_url }})
