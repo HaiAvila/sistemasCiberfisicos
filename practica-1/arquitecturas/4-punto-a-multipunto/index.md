@@ -1,7 +1,7 @@
 ---
-title: "Ejercicio 4 — Punto a Multipunto"
+title: "Arq.1 — Punto a Multipunto"
 layout: default
-nav_order: 1
+nav_order: 7
 has_children: true
 ---
 
