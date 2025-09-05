@@ -1,6 +1,6 @@
 ---
 title: "Pruebas"
-parent: "Ejercicio 4 — Punto a Multipunto"
+parent: "Arq.1 — Punto a Multipunto"
 layout: default
 nav_order: 3
 ---
