@@ -5,10 +5,10 @@ nav_order: 3
 layout: default
 ---
 
-# Procedimiento de pruebas (UART)
+# Procedimiento de pruebas (I2C)
 
 ## Latencia (1000 mensajes)
-1. Configura baud fijo (38400).  
+1. Configura frecuencia fija (100 kHz).  
 2. Corre 1000 mensajes con eco inmediato.  
 3. Guarda los resultados en CSV con columnas:
 

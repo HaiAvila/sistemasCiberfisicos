@@ -1,5 +1,5 @@
 ---
-title: "Metodología de medición"
+title: "Metodología"
 nav_order: 4
 layout: default
 has_toc: true
@@ -32,8 +32,3 @@ Para cada protocolo genera:
 
 *(Puedes graficar en Python/Excel; en la sección de cada protocolo colocaremos las 6 gráficas requeridas + interpretación.)*
 
-## Troubleshooting rápido
-
-- Nada responde: revisa **pines invertidos** (TX↔RX), **pull-ups I2C**, **CS** correcto en SPI.  
-- Eco corrupto: baja velocidad o sincroniza baud/clocks.  
-- Nano con 5 V: protege entradas 3.3 V (RP2040/ESP32).

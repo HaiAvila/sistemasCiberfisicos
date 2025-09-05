@@ -51,6 +51,6 @@ Se midió la latencia round-trip enviando **1000 mensajes** a **38400 baud** en 
 ---
 
 ## Discusión
-- **RP2040 → Arduino** mostró la menor latencia promedio.  
-- Los picos de ~8 ms sugieren jitter por ISR o buffers.  
-- Conexiones estables a 38400 baud, nivelado de voltaje necesario con Nano.
+- A
+- B
+- C

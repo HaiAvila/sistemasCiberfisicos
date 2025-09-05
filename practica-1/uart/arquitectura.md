@@ -23,7 +23,7 @@ En esta práctica se fijó inicialmente **38400 baud** para comparar la latencia
 
 - **TX ↔ RX cruzados**.  
 - **GND común** entre dispositivos.  
-- Precaución: **Arduino Nano es 5V**, mientras que RP2040 y ESP32 son **3.3V** → usar divisor o level shifter si es necesario.  
+
 
 **Esquema en KiCad:**  
 ![Esquema UART](/assets/img/uart/esquemas/uart_diagrama.png)

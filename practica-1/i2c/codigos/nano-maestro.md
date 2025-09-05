@@ -1,7 +1,7 @@
 ---
 title: "Arduino Nano — Maestro"
 parent: "codigos"
-grand_parent: "I2C"
+grand_parent: "UART"
 layout: default
 nav_order: 1
 render_with_liquid: false

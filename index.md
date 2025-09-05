@@ -9,10 +9,16 @@ has_toc: false
 
 Este sitio documenta la **Práctica 1 de Sistemas Ciberfísicos** y está pensado como **tutorial replicable**: cualquier persona puede repetir las pruebas, obtener los mismos archivos de log y reproducir las gráficas.
 
-**¿Qué harás?**
-- Conectar **RP2040**, **ESP32** y **ATmega328** (Arduino Nano) con **UART, I2C y SPI**.
-- Medir **latencia (round-trip)** y registrar **1,000 mensajes** por combinación.
-- Graficar resultados y comparar **UART vs I2C vs SPI**.
+**¿Qué harás?**  
+
+- Conectar **RP2040**, **ESP32** y **ATmega328 (Arduino Nano)** utilizando los protocolos de comunicación **UART, I2C y SPI**.  
+- Identificar las **características de cada plataforma** (frecuencia, memoria, pines, protocolos disponibles).  
+- Medir la **latencia (round-trip)** enviando **1,000 mensajes** en cada combinación de dos dispositivos, primero con **UART**, luego con **I2C**, y comparar los resultados.  
+- Generar **6 gráficas de latencia** para cada protocolo (UART e I2C) con las distintas combinaciones de plataformas.  
+- Implementar arquitecturas mixtas con los **tres protocolos (UART, I2C y SPI)**, incluyendo un escenario jerárquico: **RP2040 ↔ ESP32 (I2C)** y **ESP32 ↔ ATmega328 (UART)**.  
+- Documentar todo con **diagramas de arquitectura y esquemas eléctricos en KiCad**, además de los **códigos implementados**.  
+- Elaborar una **tabla resumen** con métricas clave (promedio, mediana, p95, desviación estándar, jitter) y un análisis comparativo **UART vs I2C vs SPI**.
+
 
 ---
 

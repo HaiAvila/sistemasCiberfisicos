@@ -20,15 +20,17 @@ Esta página resume las **características clave** de las placas usadas y lo ese
 - **Memoria:** 32 KB Flash (≈2 KB bootloader), 2 KB SRAM, 1 KB EEPROM  
 - **I/O:** 22 digitales (6 PWM), 8 analógicas  
 - **Periféricos HW:** 1×UART, 1×I2C (TWI), 1×SPI  
-- **Nivel lógico:** **5 V** (⚠️ no tolera 3.3→5 ni 5→3.3 sin adaptación)  
+- **Nivel lógico:** **5 V**
 - **Notas prácticas:** UART HW está compartido con USB-serial (D0/D1)
 
 **Pines sugeridos para esta práctica**
+
 | Protocolo | Pines Nano | Comentario |
-|---|---|---|
+|-----------|------------|------------|
 | UART | D1 (TX), D0 (RX) | Conectado al USB-serial |
-| I2C | A4 (SDA), A5 (SCL) | Requiere pull-ups |
-| SPI | D13 (SCK), D11 (MOSI), D12 (MISO), **D10 (SS)** | SS como CS/SS |
+| I2C  | A4 (SDA), A5 (SCL) | Requiere pull-ups |
+| SPI  | D13 (SCK), D11 (MOSI), D12 (MISO), **D10 (SS)** | SS como CS/SS |
+
 
 ---
 
@@ -36,15 +38,17 @@ Esta página resume las **características clave** de las placas usadas y lo ese
 - **CPU / Reloj:** 2×Cortex-M0+ @ hasta 133 MHz  
 - **Memoria:** 264 KB SRAM, 2 MB Flash a bordo  
 - **Periféricos HW:** **2×UART**, **2×I2C**, **2×SPI**, PIO  
-- **Nivel lógico:** **3.3 V** (⚠️ **no** tolera 5 V)  
+- **Nivel lógico:** **3.3 V**
 - **GPIO en la placa XIAO:** 11 GPIO útiles
 
 **Pines sugeridos (ajusta si tu serigrafía varía)**
+
 | Protocolo | Pines RP2040 | Comentario |
-|---|---|---|
-| UART | GP0 (TX), GP1 (RX) | UART0 |
-| I2C | GP4 (SDA), GP5 (SCL) | I2C0 + pull-ups |
-| SPI | GP18 (SCK), GP19 (MOSI), GP16 (MISO), **GP17 (CS)** | SPI0 |
+|-----------|--------------|------------|
+| **UART**  | `GP0 (TX)`, `GP1 (RX)` | UART0 |
+| **I2C**   | `GP4 (SDA)`, `GP5 (SCL)` | I2C0 + pull-ups |
+| **SPI**   | `GP18 (SCK)`, `GP19 (MOSI)`, `GP16 (MISO)`, **`GP17 (CS)`** | SPI0 |
+
 
 ---
 
@@ -52,17 +56,18 @@ Esta página resume las **características clave** de las placas usadas y lo ese
 - **CPU / Reloj:** Dual-core @ 160–240 MHz  
 - **Memoria:** ~520 KB SRAM internos, 4 MB Flash típica  
 - **Periféricos HW:** **3×UART**, **2×I2C**, **2×SPI (HSPI/VSPI)**, WiFi/BLE  
-- **Nivel lógico:** **3.3 V** (⚠️ **no** tolera 5 V)
+- **Nivel lógico:** **3.3 V** 
 
-**Pines sugeridos (VSPI por comodidad)**
+**Pines sugeridos**
+
 | Protocolo | Pines ESP32 | Comentario |
-|---|---|---|
-| UART | GPIO1 (TX0), GPIO3 (RX0) | O usa UART2: GPIO17 (TX), 16 (RX) |
-| I2C | GPIO21 (SDA), GPIO22 (SCL) | Pull-ups |
-| SPI | GPIO18 (SCK), GPIO23 (MOSI), GPIO19 (MISO), **GPIO5 (CS)** | VSPI |
+|:---------:|-------------|------------|
+| **UART**  | `GPIO1 (TX0)`, `GPIO3 (RX0)` | O usa UART2: `GPIO17 (TX)`, `GPIO16 (RX)` |
+| **I2C**   | `GPIO21 (SDA)`, `GPIO22 (SCL)` | Requiere pull-ups |
+| **SPI**   | `GPIO18 (SCK)`, `GPIO23 (MOSI)`, `GPIO19 (MISO)`, **`GPIO5 (CS)`** | VSPI |
 
-> **Precaución de niveles:** Nano es **5 V**. Si lo conectas con RP2040/ESP32 (**3.3 V**) en UART o SPI, usa **divisor resistivo/level shifter** hacia las entradas de 3.3 V.  
-> En **I2C**, utiliza **pull-ups a 3.3 V** y, de ser posible, un **translador MOSFET** si el bus mezcla 5 V y 3.3 V.
+
+> **Precaución de niveles:** En **I2C**, utiliza **pull-ups a 3.3 V**.
 
 ---
 
@@ -79,26 +84,14 @@ Esta página resume las **características clave** de las placas usadas y lo ese
 - **I2C:** **pull-ups** en SDA/SCL, dirección correcta, GND común, cable corto.  
 - **SPI:** define **CS** por esclavo, misma **polaridad/fase** (modo SPI), GND común.
 
----
-
-## 3) Pines que usaremos en la práctica (resumen rápido)
-
-| Placa | UART | I2C | SPI |
-|---|---|---|---|
-| **Nano** | D1 (TX), D0 (RX) | A4 (SDA), A5 (SCL) | D13 (SCK), D11 (MOSI), D12 (MISO), **D10 (SS)** |
-| **RP2040** | GP0 (TX), GP1 (RX) | GP4 (SDA), GP5 (SCL) | GP18 (SCK), GP19 (MOSI), GP16 (MISO), **GP17 (CS)** |
-| **ESP32** | GPIO1 (TX), GPIO3 (RX) *(o 17/16)* | GPIO21 (SDA), GPIO22 (SCL) | GPIO18 (SCK), GPIO23 (MOSI), GPIO19 (MISO), **GPIO5 (CS)** |
-
 > **Consejo:** siempre empieza probando **solo 1 enlace** (p. ej., RP2040↔ESP32 por UART), valida eco y luego escala a I2C/SPI.
 
 ---
 
-## 4) Qué archivos y dónde (para que cualquiera replique)
+## 3) Qué archivos y dónde?
 
-- **Códigos** por placa → `assets/code/{rp2040,esp32,atmega328}/`  
-- **Esquemas** (PNG/SVG exportados) → `assets/img/esquemas/`  
-- **Fotos** de conexiones reales → `assets/img/plataformas/`  
-- **Logs CSV** de cada prueba → `assets/logs/{uart,i2c,spi}/`  
-- **Videos cortos** de demostración → `assets/video/{uart,i2c,spi}/`
-
-Con esto, las siguientes secciones (UART/I2C/SPI) solo tienen que referenciar **esta tabla de pines** y usar los **mismos nombres** de carpetas.
+- **Códigos** por placa → `----`  
+- **Esquemas** (PNG/SVG exportados) → `----`  
+- **Fotos** de conexiones reales → `----`  
+- **Logs CSV** de cada prueba → `----`  
+- **Videos cortos** de demostración → `----`
