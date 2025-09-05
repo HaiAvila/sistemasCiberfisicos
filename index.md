@@ -31,6 +31,6 @@ Este sitio documenta la **Práctica 1 de Sistemas Ciberfísicos** y está pensad
 
 ## Índice de la práctica
 
-1. [Requisitos]({{ "/practica-1/00-requisitos/" | relative_url }})
-2. [Plataformas]({{ "/practica-1/01-plataformas/" | relative_url }})
-3. [Metodología]({{ "/practica-1/02-metodologia/" | relative_url }})
+1. [Requisitos]({{ "/practica-1/Requisitos.md" | relative_url }})
+2. [Plataformas]({{ "/practica-1/Plataformas.md" | relative_url }})
+3. [Metodología]({{ "/practica-1/Metodologia.md" | relative_url }})

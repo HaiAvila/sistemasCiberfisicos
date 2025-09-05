@@ -1,7 +1,7 @@
 ---
 title: "UART"
 layout: default
-nav_order: 10
+nav_order: 5
 has_children: true
 ---
 
@@ -20,6 +20,6 @@ has_children: true
 
 **Subsecciones:**
 1. [Arquitectura y conexiones]({{ "/practica-1/uart/arquitectura.md" | relative_url }})
-2. [Firmware]({{ "/practica-1/uart/firmware/" | relative_url }})
-3. [Pruebas]({{ "/practica-1/uart/pruebas/" | relative_url }})
-4. [Resultados]({{ "/practica-1/uart/resultados/" | relative_url }})
+2. [Firmware]({{ "/practica-1/uart/firmware.md" | relative_url }})
+3. [Pruebas]({{ "/practica-1/uart/pruebas.md" | relative_url }})
+4. [Resultados]({{ "/practica-1/uart/resultados.md" | relative_url }})

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Protocolo UART
+nav_exclude: true
 has_children: true
 nav_order: 3
 has_toc: false

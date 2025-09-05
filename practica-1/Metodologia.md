@@ -1,5 +1,5 @@
 ---
-title: "C-Metodología de medición"
+title: "Metodología de medición"
 nav_order: 4
 layout: default
 has_toc: true

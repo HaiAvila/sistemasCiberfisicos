@@ -1,6 +1,7 @@
 ---
 title: "Protocolo I2C"
 parent: "Práctica 1"
+nav_exclude: true
 nav_order: 4
 layout: default
 has_children: true
