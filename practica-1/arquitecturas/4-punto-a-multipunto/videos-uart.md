@@ -34,7 +34,7 @@ A continuación se muestran las demostraciones de la arquitectura **Punto → Mu
 ## ESP32
 
 <video controls preload="metadata" width="100%">
-  <source src="/practica-1/arquitecturas/4-punto-a-multipunto/assets/video/uart/esp32.mp4" type="video/mp4">
+  <source src="{{ '/assets/video/UART_esp32_4.mp4' | relative_url }}" type="video/mp4">
   Tu navegador no soporta video HTML5. Descarga el archivo
-  <a href="/practica-1/arquitecturas/4-punto-a-multipunto/assets/video/uart/esp32.mp4">aquí</a>.
+  <a href="{{ '/assets/video/UART_esp32_4.mp4' | relative_url }}">aquí</a>.
 </video>
