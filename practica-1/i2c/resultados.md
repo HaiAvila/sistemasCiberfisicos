@@ -29,15 +29,15 @@ Se midió la latencia round-trip enviando **1000 mensajes** a **100 kHz** en cad
 - Promedio ~3.2 ms.
 
 ### RP2040 ↦ Arduino
-![Latencia RP2040 → Arduino]({{ "/assets/img/i2c/RP_Ard.jpeg" | relative_url }})
+![Latencia RP2040 → Arduino]({{ "/assets/img/RP_Ard_I2C.jpeg" | relative_url }})
 - Promedio ~2.98 ms.
 
 ### ESP32 ↦ Arduino
-![Latencia ESP32 → Arduino]({{ "/assets/img/i2c/i2c_latency_ESP32_to_Nano_100kHz.png" | relative_url }})
+![Latencia ESP32 → Arduino]({{ "/assets/img/i2c_latency_ESP32_to_Nano_0_20250822_165652_latency.png" | relative_url }})
 - Promedio ~2.8 ms.
 
 ### Arduino ↦ ESP32
-![Latencia Arduino → ESP32]({{ "/assets/img/i2c/i2c_latency_Nano_to_ESP32_100kHz.png" | relative_url }})
+![Latencia Arduino → ESP32]({{ "/assets/img/i2c_latency_NANO_to_ESP32_100000_20250825_172233_latency.png" | relative_url }})
 - Promedio ~2.71 ms.
 
 ### ESP32 ↦ RP2040
