@@ -2,7 +2,7 @@
 title: "Videos — UART (Ejercicio 4)"
 layout: default
 nav_exclude: true
-permalink: /practica-1/arquitecturas/4-punto-a-multipunto/videos-uart/
+permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-uart/
 ---
 
 
