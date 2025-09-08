@@ -24,9 +24,5 @@ En esta práctica se fijó inicialmente **38400 baud** para comparar la latencia
 - **TX ↔ RX cruzados**.  
 - **GND común** entre dispositivos.  
 
-
-**Esquema en KiCad:**  
-![Esquema UART](/assets/img/uart/esquemas/uart_diagrama.png)
-
 **Foto de conexión real:**  
-![Foto conexión](/assets/img/uart/conexiones/uart_rp2040_esp32.jpg)
+![Foto conexión](/assets/img/uart_comunication.jpg)
