@@ -22,12 +22,12 @@ has_children: true
 
 1. **Arduino Nano**
    - [Maestro]({{ "/practica-1/i2c/codigos/nano-maestro/" | relative_url }})
-   - [Esclavo]({{ "/practica-1/i2c/codigos/nano-esclavo" | relative_url }})
+   - [Esclavo]({{ "/practica-1/i2c/codigos/nano-esclavo/" | relative_url }})
 
 2. **RP2040**
-   - [Maestro]({{ "/practica-1/i2c/codigos/rp2040-maestro" | relative_url }})
-   - [Esclavo]({{ "/practica-1/i2c/codigos/rp2040-esclavo" | relative_url }})
+   - [Maestro]({{ "/practica-1/i2c/codigos/rp2040-maestro/" | relative_url }})
+   - [Esclavo]({{ "/practica-1/i2c/codigos/rp2040-esclavo/" | relative_url }})
 
 3. **ESP32**
-   - [Maestro]({{ "/practica-1/i2c/codigos/esp32-maestro" | relative_url }})
-   - [Esclavo]({{ "/practica-1/i2c/codigos/esp32-esclavo" | relative_url }})
+   - [Maestro]({{ "/practica-1/i2c/codigos/esp32-maestro/" | relative_url }})
+   - [Esclavo]({{ "/practica-1/i2c/codigos/esp32-esclavo/" | relative_url }})
