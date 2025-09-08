@@ -3,7 +3,7 @@ title: "RP2040 — Maestro"
 parent: "codigos"
 grand_parent: "I2C"
 layout: default
-nav_order: 1
+nav_order: 3
 ---
 
 # RP2040 — Maestro
