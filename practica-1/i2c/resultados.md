@@ -25,7 +25,7 @@ Se midió la latencia round-trip enviando **1000 mensajes** a **100 kHz** en cad
 ## Detalle por par
 
 ### Arduino ↦ RP2040
-![Latencia Arduino → RP2040]({{ "/assets/img/i2c/Ard_RP.jpeg" | relative_url }})
+![Latencia Arduino → RP2040]({{ "/assets/img/Ard_RP.jpeg" | relative_url }})
 - Promedio ~3.2 ms.
 
 ### RP2040 ↦ Arduino
