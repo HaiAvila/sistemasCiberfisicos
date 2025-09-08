@@ -13,7 +13,6 @@ render_with_liquid: false
 
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
-{% raw %}
 ~~~c++
 // ARDUINO_I2C_MASTER_RTT_CSV.ino
 #include <Wire.h>
