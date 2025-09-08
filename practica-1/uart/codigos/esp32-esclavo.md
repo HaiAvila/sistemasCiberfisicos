@@ -14,9 +14,7 @@ nav_order: 6
 
 {% raw %}
 ~~~c++
-
 // NANO_INIT_UART_RTT_FIXED.ino
 print()
-
 ~~~
 {% endraw %}

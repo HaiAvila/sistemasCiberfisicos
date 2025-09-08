@@ -13,7 +13,7 @@ nav_order: 1
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
 {% raw %}
-```cpp
+~~~c++
 // NANO_INIT_UART_RTT_FIXED.ino
 #include <SoftwareSerial.h>
 
@@ -83,4 +83,5 @@ void loop() {
   Serial.println(F("# DONE"));
   while (1) { delay(1000); }
 }
+~~~
 {% endraw %}
