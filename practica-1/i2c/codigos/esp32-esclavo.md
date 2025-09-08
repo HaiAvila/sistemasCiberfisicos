@@ -1,6 +1,6 @@
 ---
 title: "ESP32 — Esclavo"
-parent: "codigos"
+parent: "Firmware"
 grand_parent: "I2C"
 layout: default
 nav_order: 6

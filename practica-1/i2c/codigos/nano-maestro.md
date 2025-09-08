@@ -1,6 +1,6 @@
 ---
 title: "Arduino Nano — Maestro"
-parent: "codigos"
+parent: "Firmware"
 grand_parent: "I2C"
 layout: default
 nav_order: 1

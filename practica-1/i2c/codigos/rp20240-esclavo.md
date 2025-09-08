@@ -1,6 +1,6 @@
 ---
 title: "RP2040 — Esclavo"
-parent: "codigos"
+parent: "Firmware"
 grand_parent: "I2C"
 layout: default
 nav_order: 4
