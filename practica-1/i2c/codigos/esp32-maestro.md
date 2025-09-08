@@ -1,7 +1,7 @@
 ---
 title: "ESP32 — Maestro"
 parent: "codigos"
-grand_parent: "UART"
+grand_parent: "I2C"
 layout: default
 nav_order: 1
 ---
@@ -13,10 +13,8 @@ nav_order: 1
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
 {% raw %}
-```cpp
-
+~~~c++
 // NANO_INIT_UART_RTT_FIXED.ino
 print()
-
-
+~~~
 {% endraw %}

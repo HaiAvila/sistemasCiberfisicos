@@ -1,7 +1,7 @@
 ---
 title: "Arduino Nano — Esclavo"
 parent: "codigos"
-grand_parent: "UART"
+grand_parent: "I2C"
 layout: default
 nav_order: 1
 ---
@@ -13,10 +13,28 @@ nav_order: 1
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
 {% raw %}
-```cpp
+~~~c++
+#include <Wire.h>
 
-// NANO_INIT_UART_RTT_FIXED.ino
-print()
+#define I2C_SLAVE_ADDR 0x08  // Dirección I2C del Arduino
 
+void setup() {
+  Wire.begin(I2C_SLAVE_ADDR);
+  Wire.onRequest(requestEvent);  // Qué hacer cuando el master pide datos
+  Serial.begin(9600);
+}
 
+void loop() {
+  // Aquí podrías actualizar un valor de sensor, etc.
+  delay(100);
+}
+
+void requestEvent() {
+  static int counter = 0;
+  counter++;
+  Wire.write(counter);  // Enviar un valor de 0–255 al master
+  Serial.print("Enviado: ");
+  Serial.println(counter);
+}
+~~~
 {% endraw %}

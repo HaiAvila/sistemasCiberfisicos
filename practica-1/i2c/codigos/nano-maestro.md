@@ -1,7 +1,7 @@
 ---
 title: "Arduino Nano — Maestro"
 parent: "codigos"
-grand_parent: "UART"
+grand_parent: "I2C"
 layout: default
 nav_order: 1
 render_with_liquid: false
@@ -13,74 +13,81 @@ render_with_liquid: false
 
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
-```cpp
-// NANO_INIT_UART_RTT_FIXED.ino
-#include <SoftwareSerial.h>
+{% raw %}
+~~~c++
+// ARDUINO_I2C_MASTER_RTT_CSV.ino
+#include <Wire.h>
 
-const uint8_t RX_PIN = 10;   // D10  <- ESP32 TX2 (GPIO17)
-const uint8_t TX_PIN = 11;   // D11  -> divisor -> ESP32 RX2 (GPIO16)
-SoftwareSerial DUT(RX_PIN, TX_PIN); // RX, TX
+#define I2C_ADDR      0x42
+const uint32_t I2C_HZ     = 100000;     // empieza en 100 kHz
+const uint16_t N_ITER     = 1000;
+const uint16_t RESP_LEN   = 5;          // "0002\n"
+const uint32_t TIMEOUT_MS = 1000;
 
-const long   DUT_BAUD       = 38400;
-const uint16_t N_ITER       = 1000;
-const unsigned long TIMEOUT_MS = 1000;
-
-char rxbuf[16];
-
-void flushDUT() { while (DUT.available()) DUT.read(); }
-
-bool readLine(Stream& s, char* out, size_t maxlen) {
-  unsigned long t0 = millis();
-  size_t i = 0;
-  while (millis() - t0 < TIMEOUT_MS) {
-    if (s.available()) {
-      char c = s.read();
-      if (c == '\r') continue;
-      if (c == '\n') { out[i] = '\0'; return true; }
-      if (i < maxlen - 1) out[i++] = c;
-    }
-  }
-  out[0] = '\0';
-  return false;
-}
+char rx[RESP_LEN + 1];
 
 void setup() {
   Serial.begin(115200);
-  DUT.begin(DUT_BAUD);
-  delay(200);
-  Serial.println(F("# Test UART fijo 4 digitos: Nano iniciador -> ESP32 eco+1"));
-  Serial.print(F("# BAUD ")); Serial.println(DUT_BAUD);
+  Wire.begin();                 // maestro
+  Wire.setClock(I2C_HZ);
+
+  Serial.println(F("# Test I2C: Arduino maestro -> RP2040 esclavo echo+1"));
+  Serial.print(F("# FREQ_HZ ")); Serial.println(I2C_HZ);
   Serial.println(F("# CSV: index,rtt_us"));
-  flushDUT();
+}
+
+bool xfer_once(uint16_t value, uint32_t &rtt) {
+  char msg[6];
+  snprintf(msg, sizeof(msg), "%04u\n", (unsigned)value);
+
+  unsigned long t0 = micros();
+
+  // 1) WRITE (sin STOP -> repeated start)
+  Wire.beginTransmission(I2C_ADDR);
+  Wire.write((const uint8_t*)msg, 5);
+  uint8_t err = Wire.endTransmission(false);   // false = no STOP
+  if (err != 0) return false;
+
+  // 2) READ (con STOP)
+  Wire.requestFrom(I2C_ADDR, (int)RESP_LEN, (int)true);
+
+  unsigned long tmax = millis() + TIMEOUT_MS;
+  while (Wire.available() < RESP_LEN) {
+    if ((long)(millis() - tmax) >= 0) return false;
+  }
+
+  for (int i = 0; i < RESP_LEN; i++) rx[i] = (char)Wire.read();
+  rx[RESP_LEN] = '\0';
+
+  unsigned long t2 = micros();
+  rtt = t2 - t0;
+  return true;
 }
 
 void loop() {
-  uint16_t idx = 0;
-  int value = 1; // primer envío
-  for (idx = 1; idx <= N_ITER; idx++) {
-    // SIEMPRE 4 dígitos + '\n' -> 5 chars fijos (ej: "0001\n")
-    char msg[8];
-    int len = snprintf(msg, sizeof(msg), "%04u\n", (unsigned)value);
+  double mean = 0.0, M2 = 0.0; uint32_t valid = 0;
+  uint16_t value = 1;
 
-    unsigned long t0 = micros();
-    DUT.write((uint8_t*)msg, len);
+  for (uint16_t idx = 1; idx <= N_ITER; idx++) {
+    uint32_t rtt;
+    if (!xfer_once(value, rtt)) { Serial.print(idx); Serial.println(F(",TIMEOUT")); continue; }
+    Serial.print(idx); Serial.print(','); Serial.println(rtt);
 
-    if (!readLine(DUT, rxbuf, sizeof(rxbuf))) {
-      Serial.print(idx); Serial.println(F(",TIMEOUT"));
-      continue;
-    }
-    unsigned long t1 = micros();
-    unsigned long rtt = (unsigned long)(t1 - t0);
+    valid++; double x=rtt, d=x-mean; mean+=d/valid; M2+=d*(x-mean);
 
-    int resp = atoi(rxbuf); // debería ser value+1 en ascii fijo
-
-    Serial.print(idx);
-    Serial.print(",");
-    Serial.println(rtt);
-
-    value = resp; // siguiente envío es lo que devolvió el ESP32
+    value = (uint16_t)atoi(rx);  // debería ser value+1
   }
 
   Serial.println(F("# DONE"));
+  if (valid >= 2) {
+    double var = M2 / (valid - 1), sd = sqrt(var);
+    Serial.print(F("# VALID,"));  Serial.println(valid);
+    Serial.print(F("# AVG_US,")); Serial.println(mean, 3);
+    Serial.print(F("# STDDEV_US,")); Serial.println(sd, 3);
+  } else {
+    Serial.println(F("# VALID,0"));
+  }
   while (1) { delay(1000); }
 }
+~~~
+{% endraw %}
