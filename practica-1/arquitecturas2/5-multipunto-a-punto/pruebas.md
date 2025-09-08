@@ -5,7 +5,7 @@ layout: default
 nav_order: 3
 ---
 
-# Procedimiento de pruebas (Ejercicio 4)
+# Procedimiento de pruebas (Ejercicio 5)
 
 1. Verificar pines y conexiones según tablas de cada microcontrolador.  
 2. Caso 1: `Switch1` en Device A → enciende `LED1` en Device B.  

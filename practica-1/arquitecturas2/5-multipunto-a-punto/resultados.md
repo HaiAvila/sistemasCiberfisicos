@@ -5,7 +5,7 @@ layout: default
 nav_order: 4
 ---
 
-# Resultados (Ejercicio 4)
+# Resultados (Ejercicio 5)
 
 **Fotos de montaje**
 ![Foto montaje](/assets/img/arquitecturas/ej4/montaje.jpg)

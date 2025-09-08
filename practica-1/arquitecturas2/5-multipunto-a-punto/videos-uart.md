@@ -1,5 +1,5 @@
 ---
-title: "Videos — UART (Ejercicio 4)"
+title: "Videos — UART (Ejercicio 5)"
 layout: default
 nav_exclude: true
 permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-uart/
@@ -7,7 +7,7 @@ permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-uart/
 
 
 
-# Videos — UART (Ejercicio 4)
+# Videos — UART (Ejercicio 5)
 
 A continuación se muestran las demostraciones de la arquitectura **Punto → Multipunto** usando **UART**, una por plataforma.
 
