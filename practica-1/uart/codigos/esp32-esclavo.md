@@ -14,7 +14,36 @@ nav_order: 6
 
 {% raw %}
 ~~~c++
-// NANO_INIT_UART_RTT_FIXED.ino
-print()
+// ESP32_UART_ECHO_PLUS_ONE_FIXEDLEN.ino
+#define ESP32_RX_PIN 16
+#define ESP32_TX_PIN 17
+const long DUT_BAUD = 38400;
+
+char buf[16];
+int  idx = 0;
+
+void setup() {
+  Serial.begin(115200);
+  Serial2.begin(DUT_BAUD, SERIAL_8N1, ESP32_RX_PIN, ESP32_TX_PIN);
+  Serial.println("# ESP32 echo+1 (4 digitos fijos) listo");
+}
+
+void loop() {
+  while (Serial2.available()) {
+    char c = Serial2.read();
+    if (c == '\r') continue;
+    if (c != '\n') {
+      if (idx < (int)sizeof(buf)-1) buf[idx++] = c;
+    } else {
+      buf[idx] = '\0';
+      idx = 0;
+      int v = atoi(buf) + 1;
+
+      char out[16];
+      int n = snprintf(out, sizeof(out), "%04u\n", (unsigned)v);
+      Serial2.write((uint8_t*)out, n);
+    }
+  }
+}
 ~~~
 {% endraw %}
