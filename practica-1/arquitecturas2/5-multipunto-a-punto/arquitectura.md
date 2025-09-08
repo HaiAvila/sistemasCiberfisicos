@@ -1,11 +1,11 @@
 ---
 title: "Arquitectura"
-parent: "Arq.1 — Punto a Multipunto"
+parent: "Arq.2 — Multipunto a Punto"
 layout: default
 nav_order: 1
 ---
 
-# Arquitectura (Ejercicio 4)
+# Arquitectura (Ejercicio 5)
 
 **Descripción**  
 - **Device A:** contiene dos switches de entrada (`Switch1`, `Switch2`).  
