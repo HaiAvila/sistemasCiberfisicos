@@ -25,8 +25,5 @@ En esta práctica se fijó inicialmente el modo **100 kHz** para comparar la lat
 - **Pull-ups obligatorios** en SDA y SCL.  
 - **GND común** entre dispositivos.  
 
-**Esquema en KiCad:**  
-![Esquema I2C](/assets/img/i2c/esquemas/i2c_diagrama.png)
-
-**Foto de conexión real:**  
-![Foto conexión](/assets/img/i2c/conexiones/i2c_rp2040_esp32.jpg)
+**Conexión:**  
+![Conexión]({{ "/assets/img/i2c_comunication.jpg" | relative_url }})

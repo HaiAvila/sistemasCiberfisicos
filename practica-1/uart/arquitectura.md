@@ -24,5 +24,5 @@ En esta práctica se fijó inicialmente **38400 baud** para comparar la latencia
 - **TX ↔ RX cruzados**.  
 - **GND común** entre dispositivos.  
 
-**Foto de conexión real:**  
-![Foto conexión](/assets/img/uart_comunication.jpg)
+**Conexión:**  
+![Conexión]({{ "/assets/img/uart_comunication.jpg" | relative_url }})
