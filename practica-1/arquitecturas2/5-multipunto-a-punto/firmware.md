@@ -1,6 +1,6 @@
 ---
 title: "Firmware"
-parent: "AArq.2 — Multipunto a Punto"
+parent: "Arq.2 — Multipunto a Punto"
 layout: default
 nav_order: 2
 ---
