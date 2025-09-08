@@ -1,9 +1,9 @@
 ---
 title: "Arduino Nano — Esclavo"
-parent: "codigos"
+parent: "Firmware"
 grand_parent: "UART"
 layout: default
-nav_order: 1
+nav_order: 2
 ---
 
 # Arduino Nano — Esclavo
