@@ -65,11 +65,11 @@ Métricas: **promedio**, **Media aritmética**, **p90**, **p99**, **σ**, **mín
 - **Gráfica**: `Imagenes/UART_ESP32_Arduino_latencia.png`
 
 ### ESP32 ↦ RP2040  {#uart-esp32-rp2040}
-- **Métricas**: *(pendiente)*  
+- **Métricas**: Prom 2.981 ms | p50 2.971 | p90 2.997 | p99 3.044 | σ 0.208 | **2** outliers (> 3.605 ms).  
 - **Gráfica**: `Imagenes/UART_ESP32_RP2040_latencia.png`
 
 ### RP2040 ↦ ESP32  {#uart-rp2040-esp32}
-- **Métricas**: *(pendiente)*  
+- **Métricas**: Prom 2.981 ms | p50 2.971 | p90 2.997 | p99 3.044 | σ 0.208 | **2** outliers (> 3.605 ms).  
 - **Gráfica**: `Imagenes/UART_RP2040_ESP32_latencia.png`
 
 ## Discusión breve
