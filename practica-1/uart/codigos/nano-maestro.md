@@ -4,7 +4,6 @@ parent: "Firmware"
 grand_parent: "UART"
 layout: default
 nav_order: 1
-render_with_liquid: false
 ---
 
 # Arduino Nano — Maestro
@@ -13,6 +12,7 @@ render_with_liquid: false
 
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
+{% raw %}
 ```cpp
 // NANO_INIT_UART_RTT_FIXED.ino
 #include <SoftwareSerial.h>
@@ -58,7 +58,6 @@ void loop() {
   uint16_t idx = 0;
   int value = 1; // primer envío
   for (idx = 1; idx <= N_ITER; idx++) {
-    // SIEMPRE 4 dígitos + '\n' -> 5 chars fijos (ej: "0001\n")
     char msg[8];
     int len = snprintf(msg, sizeof(msg), "%04u\n", (unsigned)value);
 
@@ -72,16 +71,16 @@ void loop() {
     unsigned long t1 = micros();
     unsigned long rtt = (unsigned long)(t1 - t0);
 
-    int resp = atoi(rxbuf); // debería ser value+1 en ascii fijo
+    int resp = atoi(rxbuf);
 
     Serial.print(idx);
     Serial.print(",");
     Serial.println(rtt);
 
-    value = resp; // siguiente envío es lo que devolvió el ESP32
+    value = resp;
   }
 
   Serial.println(F("# DONE"));
   while (1) { delay(1000); }
 }
-```
+{% endraw %}
