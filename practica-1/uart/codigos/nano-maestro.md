@@ -4,14 +4,16 @@ parent: "Firmware"
 grand_parent: "UART"
 layout: default
 nav_order: 1
+render_with_liquid: false
 ---
 
 # Arduino Nano — Maestro
 
-> Pega aquí tu sketch que **envía 1000 mensajes**, mide **RTT** y **imprime CSV** (`index,rtt_us`).
+> Sketch que **envía 1000 mensajes**, mide **RTT** e imprime **CSV** (`index,rtt_us`).
 
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
+{% raw %}
 ```cpp
 // NANO_INIT_UART_RTT_FIXED.ino
 #include <SoftwareSerial.h>
@@ -20,8 +22,8 @@ const uint8_t RX_PIN = 10;   // D10  <- ESP32 TX2 (GPIO17)
 const uint8_t TX_PIN = 11;   // D11  -> divisor -> ESP32 RX2 (GPIO16)
 SoftwareSerial DUT(RX_PIN, TX_PIN); // RX, TX
 
-const long   DUT_BAUD       = 38400;
-const uint16_t N_ITER       = 1000;
+const long DUT_BAUD = 38400;
+const uint16_t N_ITER = 1000;
 const unsigned long TIMEOUT_MS = 1000;
 
 char rxbuf[16];
