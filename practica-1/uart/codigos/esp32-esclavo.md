@@ -13,7 +13,7 @@ nav_order: 6
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
 {% raw %}
-```cpp
+~~~c++
 
 // NANO_INIT_UART_RTT_FIXED.ino
 print()
