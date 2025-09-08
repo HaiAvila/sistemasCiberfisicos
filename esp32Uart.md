@@ -14,7 +14,7 @@ has_toc: true
 
 **Baud / trama:** `38400`, `8N1`, `"%04d\n"`.  
 
-**Pines (UART0 en ESP 32):** `TX2 = GPIO17 (G17)`, `RX2 = GPIO16 (G16)`.  
+**Pines (UART2 en ESP 32):** `TX2 = GPIO17 (G17)`, `RX2 = GPIO16 (G16)`.  
 
 **Niveles lógicos:** ESP32 es **3.3 V**; el otro dispositivo es **3.3 V** (RP 2040).  
 
@@ -23,99 +23,113 @@ has_toc: true
 **Uso (maestro):** en **Thonny**, guardar y ejecutar `esp32_master_uart.py`; al terminar, descargar el TXT del dispositivo.  
 **Uso (esclavo):** guardar como `main.py` (o ejecutar manualmente) y dejar corriendo mientras el maestro mide.
 
-### Maestro — `rp2040_uart_master.py`
-**Plataforma:** Seeed XIAO RP2040 (MicroPython)  
+### Maestro — `esp32_uart_master.py`
+**Plataforma:** ESP 32 (MicroPython)  
 **Baud/trama:** `38400`, `8N1`  
-**Pines (UART0):** `TX = P0 (D6)`, `RX = P1 (D7)`  
-**Salida:** CSV en el dispositivo (`index,rtt_us`) con **1000** iteraciones
+**Pines (UART0):** `TX = GPIO17 (G17)`, `RX = GPIO16 (G16)`  
+**Salida:** TXT en el dispositivo (`index,rtt_us`) con **1000** iteraciones
 - **Validaciones rápidas:** si ves `TIMEOUT`, revisa **TX↔RX**, **GND**, mismo **baud** en ambos; evita cargas de CPU en el esclavo.
 
 {% raw %}
-~~~c++
-# esp32_uart_master.py  (ESP32 - C++)
-#include <HardwareSerial.h>
+~~~python
+# esp32_uart_master.py  (ESP32 - Micropython)
+from machine import UART
+import time
 
-// Usamos UART2 -> pines recomendados RX=16, TX=17
-HardwareSerial SerialPort(2); 
+# UART2 en ESP32: TX=17, RX=16 (cablea 17→RX del RP2040 y 16←TX del RP2040)
+uart = UART(2, baudrate=9600, tx=17, rx=16, timeout=0)  # timeout=0 = no bloqueante
 
-void setup() {
-  // Monitor por USB
-  Serial.begin(9600);
+def read_exact(n, timeout_ms=500):
+    """Lee exactamente n bytes o None si expira timeout."""
+    buf = b""
+    t0 = time.ticks_ms()
+    while len(buf) < n and time.ticks_diff(time.ticks_ms(), t0) < timeout_ms:
+        if uart.any():
+            chunk = uart.read(n - len(buf)) or b""
+            if chunk:
+                buf += chunk
+        time.sleep_ms(1)  # ceder CPU
+    return buf if len(buf) == n else None
 
-  // UART2 para comunicación con la RP2040
-  SerialPort.begin(9600, SERIAL_8N1, 16, 17);  
-  Serial.println("ESP32 listo para recibir datos...");
-}
+with open("latencia_rp_espera_esp.txt", "w") as f:
+    time.sleep_ms(200)  # pequeño warm-up
 
-void loop() {
-  // Si hay datos desde la RP2040
-  if (SerialPort.available()) {
-    String recibido = SerialPort.readStringUntil('\n'); // lee hasta salto de línea
-    
-    if (recibido.length() > 0) {
-      int numero = recibido.toInt();   // convierte a entero
-      int respuesta = numero + 1;      // suma 1
+    for i in range(1001):
+        msg = f"{i:04d}".encode()
 
-      // Formatear la respuesta en 4 dígitos
-      char buffer[6];
-      sprintf(buffer, "%04d\n", respuesta);
+        # Vaciar residuos antes de cada envío
+        while uart.any():
+            uart.read()
 
-      // Enviar de regreso a la RP2040
-      SerialPort.print(buffer);
+        t0 = time.ticks_us()
+        uart.write(msg)
 
-      // Mostrar en monitor USB para depuración
-      Serial.print("Recibido: ");
-      Serial.print(recibido);
-      Serial.print(" -> Enviado: ");
-      Serial.println(buffer);
-    }
-  }
-}
+        resp = read_exact(4, timeout_ms=500)  # esperamos 4 bytes exactos
+        t1 = time.ticks_us()
 
+        if resp is not None:
+            esperado = f"{i+1:04d}".encode()
+            if resp == esperado:
+                lat_ms = time.ticks_diff(t1, t0) / 1000.0
+                f.write(f"{lat_ms}\n")
+                print(f"{lat_ms:.3f}")
+            else:
+                f.write("-2\n")
+                print(f"ENVIADO: {msg.decode()} | RECIBIDO: {resp.decode()} (MISMATCH)")
+        else:
+            f.write("-1\n")
+            print(f"ENVIADO: {msg.decode()} | RECIBIDO: None (TIMEOUT)")
+
+        # Detener al recibir 1001 (i=1000 debe devolver 1001)
+        if resp == b"1001":
+            print("Fin del test.")
+            break
+
+        time.sleep_ms(20)  # breve respiro para estabilidad
 ~~~
 {% endraw %}
 
-### Esclavo — `rp2040_uart_slave.py`
-**Plataforma:** Seeed XIAO RP2040 (MicroPython)  
+### Esclavo — `esp32_uart_slave.py`
+**Plataforma:** ESP32 (C++)  
 **Baud/trama:** `38400`, `8N1`  
-**Pines (UART0):** `TX = P0 (D6)`, `RX = P1 (D7)`  
-**Salida:** no genera CSV; solo **eco+1**
+**Pines (UART2 en ESP 32):** `TX2 = GPIO17 (G17)`, `RX2 = GPIO16 (G16)`.  
+**Salida:** no genera TXT; solo **eco+1**
 - **Validaciones rápidas:** mantener el **eco inmediato** (sin `delay` largos); revisar **TX↔RX**, **GND** y el mismo **baud**.
 
-### Código — `rp2040_uart_slave.py`
+### Código — `esp32_uart_slave.py`
 
 {% raw %}
-~~~python
-# rp2040_uart_slave.py  (Seeed XIAO RP2040 - MicroPython)
-# Esclavo UART: recibe "%04d\n" y responde inmediatamente con (valor+1) en el mismo formato.
+~~~c++
+// ESP32_UART_ECHO_PLUS_ONE_FIXEDLEN.ino
+#define ESP32_RX_PIN 16
+#define ESP32_TX_PIN 17
+const long DUT_BAUD = 38400;
 
-from machine import UART, Pin
-import time
+char buf[16];
+int  idx = 0;
 
-BAUD = 38400
-# XIAO RP2040: UART0 -> TX=P0 (D6), RX=P1 (D7)
-uart = UART(0, baudrate=BAUD, tx=Pin(0), rx=Pin(1))
+void setup() {
+  Serial.begin(115200);
+  Serial2.begin(DUT_BAUD, SERIAL_8N1, ESP32_RX_PIN, ESP32_TX_PIN);
+  Serial.println("# ESP32 echo+1 (4 digitos fijos) listo");
+}
 
-buf = bytearray()
-while True:
-    if uart.any():
-        c = uart.read(1)
-        if not c:
-            continue
-        if c == b'\r':
-            continue
-        if c == b'\n':
-            # Procesa línea completa
-            try:
-                v = int(bytes(buf).decode().strip()) + 1
-            except:
-                v = 0
-            uart.write(f"{v:04d}\n")
-            buf = bytearray()
-        else:
-            if len(buf) < 16:
-                buf.extend(c)
-    else:
-        time.sleep_us(50)
+void loop() {
+  while (Serial2.available()) {
+    char c = Serial2.read();
+    if (c == '\r') continue;
+    if (c != '\n') {
+      if (idx < (int)sizeof(buf)-1) buf[idx++] = c;
+    } else {
+      buf[idx] = '\0';
+      idx = 0;
+      int v = atoi(buf) + 1;
+
+      char out[16];
+      int n = snprintf(out, sizeof(out), "%04u\n", (unsigned)v);
+      Serial2.write((uint8_t*)out, n);
+    }
+  }
+}
 ~~~
 {% endraw %}
