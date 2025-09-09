@@ -6,9 +6,7 @@ layout: default
 nav_order: 1
 ---
 
----
-
-## Dispositivo A
+# Dispositivo A
 
 ```cpp
 print("Hola mundo")
@@ -16,9 +14,7 @@ print("Hola mundo")
 ~~~
 {% endraw %}
 
-
-
-## Dispositivo B y C
+# Dispositivo B y C
 
 ```cpp
 print("Hola mundo")
