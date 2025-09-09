@@ -110,6 +110,35 @@ void loop() {
 
 {% raw %}
 ~~~c++
+#include <Arduino.h>
+#include <Wire.h>
 
+constexpr uint8_t  SLAVE_ADDR = 0x13;
+constexpr int SDA_PIN = 21, SCL_PIN = 22;
+constexpr int LED_PIN = 4;
+constexpr uint32_t I2C_HZ = 100000;
+
+volatile bool pending=false;
+volatile uint8_t lastByte=0;
+
+void onReceiveHandler(int n) {
+  if (n>=1) { lastByte = Wire.read(); while (Wire.available()) (void)Wire.read(); pending=true; }
+}
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT); digitalWrite(LED_PIN, LOW);
+  Serial.begin(115200);
+  Wire.begin((uint8_t)SLAVE_ADDR, SDA_PIN, SCL_PIN, I2C_HZ);
+  Wire.onReceive(onReceiveHandler);
+  Serial.println(F("# C slave listo (0x13)"));
+}
+
+void loop() {
+  if (pending) {
+    noInterrupts(); uint8_t b=lastByte; pending=false; interrupts();
+    bool on = (b=='1' || b==1);
+    digitalWrite(LED_PIN, on?HIGH:LOW);
+  }
+}
 ~~~
 {% endraw %}
