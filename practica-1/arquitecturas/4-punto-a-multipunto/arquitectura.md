@@ -13,10 +13,8 @@ nav_order: 1
 - **Device C:** controla `LED2`.  
 - El dispositivo maestro es **A**, que envía comandos a B y C.  
 
-**Protocolos a implementar**
-- A ↔ B con **I2C**.  
-- A ↔ C con **UART**.  
-- Alternativa: implementación con **SPI**.  
+**Objetivo**
+Implementar la arquitectura descrita con todas las plataformas (por ejemplo que por rondas, todos los dispositivos sean ESP32, NANO, RP2040) y al usar cada plataforma probar cada protocolo (UART, SPI e I2C).
 
 **Diagrama de bloques**
 ![Conexión]({{ "/assets/img/arq1.png" | relative_url }})

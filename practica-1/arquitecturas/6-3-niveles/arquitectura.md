@@ -1,6 +1,6 @@
 ---
 title: "Arquitectura"
-parent: "Arq.6 — 3 niveles"
+parent: "Arq.3 — 3 niveles"
 layout: default
 nav_order: 1
 ---
@@ -16,8 +16,5 @@ nav_order: 1
 - Comunicación principal: …  
 - Alternativa: …  
 
-**Diagrama de bloques**  
-![Diagrama de bloques](/assets/img/arquitecturas/ej6/diagrama_bloques.png)
-
-**Esquema eléctrico (KiCad)**  
-- Proyecto: `/kicad/ej6_arch.kicad_pro`
+**Diagrama de bloques**
+![Conexión]({{ "/assets/img/arq3.png" | relative_url }})
