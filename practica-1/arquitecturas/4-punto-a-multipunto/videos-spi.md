@@ -7,7 +7,7 @@ permalink: /practica-1/arquitecturas/4-punto-a-multipunto/videos-spi/
 
 
 
-# Videos — UART (Ejercicio 4)
+# Videos — SPI (Ejercicio 4)
 
 A continuación se muestran las demostraciones de la arquitectura **Punto → Multipunto** usando **UART**, una por plataforma.
 
