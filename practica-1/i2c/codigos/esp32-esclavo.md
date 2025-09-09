@@ -13,7 +13,7 @@ nav_order: 6
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
 {% raw %}
-```cpp
+~~~c++
 
 // NANO_I2C_MASTER_RTT_1000.ino
 // Master I2C (Nano/ATmega328P) -> ESP32 slave (0x12).
@@ -102,4 +102,5 @@ void loop() {
 }
 
 
+~~~
 {% endraw %}

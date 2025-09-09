@@ -13,8 +13,7 @@ nav_order: 5
 **Baud:** 38400 · **Trama:** `"%04d\n"` · **Pines sugeridos (SoftwareSerial):** RX=D10, TX=D11
 
 {% raw %}
-```cpp
-
+~~~c++
 // ESP32_I2C_INITIATOR_RTT.ino
 // Envia uint16 (LSB,MSB) a un slave 0x12 y lee eco (v+1).
 // Mide RTT con esp_timer_get_time() y loguea "index,rtt_us".
@@ -85,4 +84,5 @@ void loop(){
 }
 
 
+~~~
 {% endraw %}
