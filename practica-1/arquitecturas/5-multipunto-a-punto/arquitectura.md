@@ -18,8 +18,5 @@ nav_order: 1
 - A ↔ C con **UART**.  
 - Alternativa: implementación con **SPI**.  
 
-**Diagrama de bloques**  
-![Diagrama de bloques](/assets/img/arquitecturas/ej4/diagrama_bloques.png)
-
-**Esquema eléctrico (KiCad)**  
-- Proyecto: `/kicad/ej4_p2m.kicad_pro`
+**Diagrama de bloques**
+![Conexión]({{ "/assets/img/arq2.png" | relative_url }})
