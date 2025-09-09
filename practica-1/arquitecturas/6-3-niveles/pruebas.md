@@ -1,6 +1,6 @@
 ---
 title: "Pruebas"
-parent: "Arq.6 — 3 niveles"
+parent: "Arq.3 — 3 niveles"
 layout: default
 nav_order: 3
 ---
