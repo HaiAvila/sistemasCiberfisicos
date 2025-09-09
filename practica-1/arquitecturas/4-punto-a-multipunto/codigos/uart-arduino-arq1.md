@@ -8,7 +8,8 @@ nav_order: 1
 
 # Dispositivo A
 
-```cpp
+{% raw %}
+~~~c++
 print("Hola mundo")
 
 ~~~
@@ -16,7 +17,8 @@ print("Hola mundo")
 
 # Dispositivo B y C
 
-```cpp
+{% raw %}
+~~~c++
 print("Hola mundo")
 ~~~
 {% endraw %}
