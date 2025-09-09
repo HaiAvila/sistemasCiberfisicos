@@ -23,3 +23,5 @@ nav_order: 4
 
 **Videos de implementación**
 - [UART — 3 plataformas]({{ "/practica-1/arquitecturas/4-punto-a-multipunto/videos-uart/" | relative_url }})
+- [UART — 3 plataformas]({{ "/practica-1/arquitecturas/4-punto-a-multipunto/videos-i2c/" | relative_url }})
+- [UART — 3 plataformas]({{ "/practica-1/arquitecturas/4-punto-a-multipunto/videos-spi/" | relative_url }})
