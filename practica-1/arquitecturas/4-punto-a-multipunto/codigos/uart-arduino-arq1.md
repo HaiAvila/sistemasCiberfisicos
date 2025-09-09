@@ -16,9 +16,7 @@ print("Hola mundo")
 ~~~
 {% endraw %}
 
----
 
----
 
 ## Dispositivo B y C
 
@@ -26,4 +24,3 @@ print("Hola mundo")
 print("Hola mundo")
 ~~~
 {% endraw %}
----
