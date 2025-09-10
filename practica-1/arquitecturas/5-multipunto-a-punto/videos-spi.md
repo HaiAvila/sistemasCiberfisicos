@@ -14,9 +14,9 @@ A continuación se muestran las demostraciones de la arquitectura **Punto → Mu
 ## Arduino Nano
 
 <video controls preload="metadata" width="100%">
-  <source src="{{ '/assets/video/SPI_nano_4.mp4' | relative_url }}" type="video/mp4">
+  <source src="{{ '/assets/video/SPI_nano_5.mp4' | relative_url }}" type="video/mp4">
   Tu navegador no soporta video HTML5. Descarga el archivo
-  <a href="{{ '/assets/video/SPI_nano_4.mp4' | relative_url }}">aquí</a>.
+  <a href="{{ '/assets/video/SPI_nano_5.mp4' | relative_url }}">aquí</a>.
 </video>
 
 ---
@@ -34,7 +34,7 @@ A continuación se muestran las demostraciones de la arquitectura **Punto → Mu
 ## ESP32
 
 <video controls preload="metadata" width="100%">
-  <source src="{{ '/assets/video/SPI_esp32_4.mp4' | relative_url }}" type="video/mp4">
+  <source src="{{ '/assets/video/SPI_esp32_5.mp4' | relative_url }}" type="video/mp4">
   Tu navegador no soporta video HTML5. Descarga el archivo
-  <a href="{{ '/assets/video/SPI_esp32_4.mp4' | relative_url }}">aquí</a>.
+  <a href="{{ '/assets/video/SPI_esp32_5.mp4' | relative_url }}">aquí</a>.
 </video>
