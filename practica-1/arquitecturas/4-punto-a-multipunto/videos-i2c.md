@@ -9,7 +9,7 @@ permalink: /practica-1/arquitecturas/4-punto-a-multipunto/videos-i2c/
 
 # Videos — I2C (Ejercicio 4)
 
-A continuación se muestran las demostraciones de la arquitectura **Punto → Multipunto** usando **UART**, una por plataforma.
+A continuación se muestran las demostraciones de la arquitectura **Punto → Multipunto** usando **I2C**, una por plataforma.
 
 ## Arduino Nano
 
