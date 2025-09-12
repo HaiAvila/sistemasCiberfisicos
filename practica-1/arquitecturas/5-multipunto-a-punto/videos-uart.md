@@ -1,7 +1,9 @@
 ---
 title: "Videos — UART (Ejercicio 5)"
+parent: "Resultados"
+grand_parent: "Arq.2 — Multipunto a Punto"
 layout: default
-permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-uart/
+nav_order: 1
 ---
 
 

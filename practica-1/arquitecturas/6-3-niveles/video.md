@@ -1,8 +1,9 @@
 ---
 title: "Video"
+parent: "Resultados"
+grand_parent: "Arq.3 — 3 niveles"
 layout: default
-nav_exclude: true
-permalink: /practica-1/arquitecturas/6-3-niveles/video/
+nav_order: 2
 ---
 
 # Videos — Ejercicio 6

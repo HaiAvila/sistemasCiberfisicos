@@ -1,8 +1,9 @@
 ---
 title: "Videos — I2C (Ejercicio 4)"
+parent: "Resultados"
+grand_parent: "Arq.1 — Punto a Multipunto"
 layout: default
-nav_exclude: true
-permalink: /practica-1/arquitecturas/4-punto-a-multipunto/videos-i2c/
+nav_order: 2
 ---
 
 

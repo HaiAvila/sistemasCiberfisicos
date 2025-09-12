@@ -1,9 +1,10 @@
 ---
 title: "Videos — SPI (Ejercicio 4)"
+parent: "Resultados"
+grand_parent: "Arq.2 — Multipunto a Punto"
 layout: default
-permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-spi/
+nav_order: 3
 ---
-
 
 
 # Videos — SPI (Ejercicio 4)
