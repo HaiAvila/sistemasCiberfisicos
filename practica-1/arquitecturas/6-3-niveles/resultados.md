@@ -22,4 +22,4 @@ nav_order: 4
 | 3 | ... | ... | ... | ... |
 
 **Videos de implementación**
-- [Link a videos]({{ "/practica-1/arquitecturas/6-nueva-arquitectura/video/" | relative_url }})
+- [Link a videos]({{ "/practica-1/arquitecturas/6-3-niveles/video/" | relative_url }})
