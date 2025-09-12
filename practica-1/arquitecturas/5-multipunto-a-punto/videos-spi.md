@@ -1,7 +1,6 @@
 ---
 title: "Videos — SPI (Ejercicio 4)"
 layout: default
-nav_exclude: true
 permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-spi/
 ---
 

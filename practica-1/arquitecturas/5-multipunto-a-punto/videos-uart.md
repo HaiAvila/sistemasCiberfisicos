@@ -1,7 +1,6 @@
 ---
 title: "Videos — UART (Ejercicio 5)"
 layout: default
-nav_exclude: true
 permalink: /practica-1/arquitecturas/5-multipunto-a-punto/videos-uart/
 ---
 
